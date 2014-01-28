@@ -1,0 +1,395 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+                              c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o (exit)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_copy_data.o)
+                              SimonGame1.o (__do_copy_data)
+c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_clear_bss.o)
+                              SimonGame1.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+ctr                 0x1               SimonGame1.o
+var                 0x1               SimonGame1.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+LOAD SimonGame1.o
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib\libc.a
+LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0xb5e
+ *(.vectors)
+ .vectors       0x00000000       0x1a c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table
+                0x0000001a       0x10 SimonGame1.o
+ *(.progmem*)
+ .progmem.data  0x0000002a       0xe0 SimonGame1.o
+                0x000000fc                Question2
+                0x000000f6                Answer5
+                0x00000069                LoseRoundSound
+                0x000000ec                Answer1
+                0x000000b3                WinGameSound
+                0x000000f2                Answer4
+                0x00000101                Question4
+                0x000000fb                Question1
+                0x000000ef                Answer3
+                0x00000092                WinRoundSound
+                0x0000002e                StartGameSound
+                0x00000105                Question5
+                0x0000002a                ButtonSounds
+                0x000000ed                Answer2
+                0x000000fe                Question3
+                0x0000010a                . = ALIGN (0x2)
+                0x0000010a                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000010a        0x0 linker stubs
+ *(.trampolines*)
+                0x0000010a                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000010a                __ctors_start = .
+ *(.ctors)
+                0x0000010a                __ctors_end = .
+                0x0000010a                __dtors_start = .
+ *(.dtors)
+                0x0000010a                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000010a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+                0x0000010a                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000010a        0xc c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000116       0x18 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_copy_data.o)
+                0x00000116                __do_copy_data
+ .init4         0x0000012e       0x10 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_clear_bss.o)
+                0x0000012e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000013e        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+ *(.init9)
+ *(.text)
+ .text          0x00000142        0x2 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+                0x00000142                __vector_1
+                0x00000142                __vector_12
+                0x00000142                __bad_interrupt
+                0x00000142                __vector_6
+                0x00000142                __vector_3
+                0x00000142                __vector_11
+                0x00000142                __vector_5
+                0x00000142                __vector_4
+                0x00000142                __vector_9
+                0x00000142                __vector_2
+                0x00000142                __vector_8
+                0x00000142                __vector_10
+ .text          0x00000144      0xa16 SimonGame1.o
+                0x00000500                reset
+                0x000005b0                delayMethod
+                0x00000144                __vector_7
+                0x0000069e                winGameSequence
+                0x00000770                main
+                0x00000648                loseMethod
+                0x000005d2                winMethod
+                0x00000594                initialize
+                0x00000510                playNOTE
+ .text          0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+ .text          0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_copy_data.o)
+ .text          0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_clear_bss.o)
+                0x00000b5a                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+ .text.libgcc   0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_clear_bss.o)
+                0x00000b5a                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x00000b5a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+                0x00000b5a                exit
+                0x00000b5a                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x00000b5a        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+ *(.fini0)
+                0x00000b5e                _etext = .
+
+.data           0x00800060        0xa load address 0x00000b5e
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+ .data          0x00800060        0xa SimonGame1.o
+                0x00800068                x
+                0x00800069                x_old
+                0x00800060                LEDs
+                0x00800064                Buttons
+ .data          0x0080006a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+ .data          0x0080006a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_copy_data.o)
+ .data          0x0080006a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_clear_bss.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080006a                . = ALIGN (0x2)
+                0x0080006a                _edata = .
+                0x0080006a                PROVIDE (__data_end, .)
+
+.bss            0x0080006a        0x5
+                0x0080006a                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080006a        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/crts4414.o
+ .bss           0x0080006a        0x3 SimonGame1.o
+                0x0080006c                var1
+                0x0080006a                state
+                0x0080006b                startISR
+ .bss           0x0080006d        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_exit.o)
+ .bss           0x0080006d        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_copy_data.o)
+ .bss           0x0080006d        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2\libgcc.a(_clear_bss.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0080006d        0x2 SimonGame1.o
+                0x0080006d                ctr
+                0x0080006e                var
+                0x0080006f                PROVIDE (__bss_end, .)
+                0x00000b5e                __data_load_start = LOADADDR (.data)
+                0x00000b68                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080006f        0x0
+                0x0080006f                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080006f                PROVIDE (__noinit_end, .)
+                0x0080006f                _end = .
+                0x0080006f                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0x20
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 SimonGame1.o
+
+.debug_pubnames
+                0x00000000      0x1c2
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000      0x1c2 SimonGame1.o
+
+.debug_info     0x00000000     0x1184
+ *(.debug_info)
+ .debug_info    0x00000000     0x1184 SimonGame1.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x28f
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x28f SimonGame1.o
+
+.debug_line     0x00000000      0xc85
+ *(.debug_line)
+ .debug_line    0x00000000      0xc85 SimonGame1.o
+
+.debug_frame    0x00000000       0xa0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0xa0 SimonGame1.o
+
+.debug_str      0x00000000      0x207
+ *(.debug_str)
+ .debug_str     0x00000000      0x207 SimonGame1.o
+                                0x23b (size before relaxing)
+
+.debug_loc      0x00000000      0x934
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x934 SimonGame1.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(SimonGame1.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000      0x2d0
+ .debug_ranges  0x00000000      0x2d0 SimonGame1.o

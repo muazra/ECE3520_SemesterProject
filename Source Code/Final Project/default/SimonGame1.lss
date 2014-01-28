@@ -1,0 +1,2161 @@
+
+SimonGame1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000b5e  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000a  00800060  00000b5e  00000bf2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000005  0080006a  0080006a  00000bfc  2**0
+                  ALLOC
+  3 .debug_aranges 00000020  00000000  00000000  00000bfc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 000001c2  00000000  00000000  00000c1c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001184  00000000  00000000  00000dde  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000028f  00000000  00000000  00001f62  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000c85  00000000  00000000  000021f1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000a0  00000000  00000000  00002e78  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000207  00000000  00000000  00002f18  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000934  00000000  00000000  0000311f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000002d0  00000000  00000000  00003a53  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	84 c0       	rjmp	.+264    	; 0x10a <__ctors_end>
+   2:	9f c0       	rjmp	.+318    	; 0x142 <__bad_interrupt>
+   4:	9e c0       	rjmp	.+316    	; 0x142 <__bad_interrupt>
+   6:	9d c0       	rjmp	.+314    	; 0x142 <__bad_interrupt>
+   8:	9c c0       	rjmp	.+312    	; 0x142 <__bad_interrupt>
+   a:	9b c0       	rjmp	.+310    	; 0x142 <__bad_interrupt>
+   c:	9a c0       	rjmp	.+308    	; 0x142 <__bad_interrupt>
+   e:	9a c0       	rjmp	.+308    	; 0x144 <__vector_7>
+  10:	98 c0       	rjmp	.+304    	; 0x142 <__bad_interrupt>
+  12:	97 c0       	rjmp	.+302    	; 0x142 <__bad_interrupt>
+  14:	96 c0       	rjmp	.+300    	; 0x142 <__bad_interrupt>
+  16:	95 c0       	rjmp	.+298    	; 0x142 <__bad_interrupt>
+  18:	94 c0       	rjmp	.+296    	; 0x142 <__bad_interrupt>
+  1a:	da c3       	rjmp	.+1972   	; 0x7d0 <main+0x60>
+  1c:	02 c4       	rjmp	.+2052   	; 0x822 <main+0xb2>
+  1e:	14 c4       	rjmp	.+2088   	; 0x848 <main+0xd8>
+  20:	6a c4       	rjmp	.+2260   	; 0x8f6 <main+0x186>
+  22:	c7 c4       	rjmp	.+2446   	; 0x9b2 <main+0x242>
+  24:	23 c5       	rjmp	.+2630   	; 0xa6c <main+0x2fc>
+  26:	81 c5       	rjmp	.+2818   	; 0xb2a <main+0x3ba>
+  28:	82 c5       	rjmp	.+2820   	; 0xb2e <main+0x3be>
+
+0000002a <ButtonSounds>:
+  2a:	ed e4 f1 f6                                         ....
+
+0000002e <StartGameSound>:
+  2e:	f1 ea ed ec ea f1 ec ea ed ec e7 eb f1 f1 ea ed     ................
+  3e:	ec ea f1 e7 e7 e4 ef e4 f1 ef ef ed ea ed f1 ed     ................
+  4e:	f1 ed e4 f1 f0 ec ed f1 f0 f0 f1 f1 ed f1 ed f1     ................
+  5e:	ed e7 e7 e4 ef e4 f1 ef f0 ed ea                    ...........
+
+00000069 <LoseRoundSound>:
+  69:	db db db d1 f0 db e8 f0 db e7 e7 e7 e8 f0 d9 d1     ................
+  79:	f0 db db db db d1 f0 db e8 f0 db e7 e7 e7 e8 f0     ................
+  89:	d9 d1 f0 db db db db d1 f0                          .........
+
+00000092 <WinRoundSound>:
+  92:	e7 ea ec ea e6 f1 f1 ef eb ea f1 ea ea e7 f1 ea     ................
+  a2:	ee e7 e6 e7 e6 e7 ea ec ea e6 f1 f1 ef ec ea f1     ................
+  b2:	ea                                                  .
+
+000000b3 <WinGameSound>:
+  b3:	f1 eb eb ea eb e7 eb e4 eb e7 eb e4 f1 eb eb e4     ................
+  c3:	eb e7 eb ea eb e7 eb eb e4 f1 eb e4 f1 eb eb eb     ................
+  d3:	eb eb ea eb e7 f1 e4 eb e7 eb e4 eb eb eb e4 eb     ................
+  e3:	e7 eb ea f1 e7 eb e4 eb e4                          .........
+
+000000ec <Answer1>:
+  ec:	07                                                  .
+
+000000ed <Answer2>:
+  ed:	07 0b                                               ..
+
+000000ef <Answer3>:
+  ef:	07 0d 0b                                            ...
+
+000000f2 <Answer4>:
+  f2:	0b 0e 07 0d                                         ....
+
+000000f6 <Answer5>:
+  f6:	07 0e 0b 0d 07                                      .....
+
+000000fb <Question1>:
+  fb:	8f                                                  .
+
+000000fc <Question2>:
+  fc:	8f cf                                               ..
+
+000000fe <Question3>:
+  fe:	8f af ef                                            ...
+
+00000101 <Question4>:
+ 101:	4f 5f df ff                                         O_..
+
+00000105 <Question5>:
+ 105:	8f 9f df ff 8f                                      .....
+
+0000010a <__ctors_end>:
+ 10a:	11 24       	eor	r1, r1
+ 10c:	1f be       	out	0x3f, r1	; 63
+ 10e:	cf e5       	ldi	r28, 0x5F	; 95
+ 110:	d1 e0       	ldi	r29, 0x01	; 1
+ 112:	de bf       	out	0x3e, r29	; 62
+ 114:	cd bf       	out	0x3d, r28	; 61
+
+00000116 <__do_copy_data>:
+ 116:	10 e0       	ldi	r17, 0x00	; 0
+ 118:	a0 e6       	ldi	r26, 0x60	; 96
+ 11a:	b0 e0       	ldi	r27, 0x00	; 0
+ 11c:	ee e5       	ldi	r30, 0x5E	; 94
+ 11e:	fb e0       	ldi	r31, 0x0B	; 11
+ 120:	03 c0       	rjmp	.+6      	; 0x128 <.do_copy_data_start>
+
+00000122 <.do_copy_data_loop>:
+ 122:	c8 95       	lpm
+ 124:	31 96       	adiw	r30, 0x01	; 1
+ 126:	0d 92       	st	X+, r0
+
+00000128 <.do_copy_data_start>:
+ 128:	aa 36       	cpi	r26, 0x6A	; 106
+ 12a:	b1 07       	cpc	r27, r17
+ 12c:	d1 f7       	brne	.-12     	; 0x122 <.do_copy_data_loop>
+
+0000012e <__do_clear_bss>:
+ 12e:	10 e0       	ldi	r17, 0x00	; 0
+ 130:	aa e6       	ldi	r26, 0x6A	; 106
+ 132:	b0 e0       	ldi	r27, 0x00	; 0
+ 134:	01 c0       	rjmp	.+2      	; 0x138 <.do_clear_bss_start>
+
+00000136 <.do_clear_bss_loop>:
+ 136:	1d 92       	st	X+, r1
+
+00000138 <.do_clear_bss_start>:
+ 138:	af 36       	cpi	r26, 0x6F	; 111
+ 13a:	b1 07       	cpc	r27, r17
+ 13c:	e1 f7       	brne	.-8      	; 0x136 <.do_clear_bss_loop>
+ 13e:	18 d3       	rcall	.+1584   	; 0x770 <main>
+ 140:	0c c5       	rjmp	.+2584   	; 0xb5a <_exit>
+
+00000142 <__bad_interrupt>:
+ 142:	5e cf       	rjmp	.-324    	; 0x0 <__vectors>
+
+00000144 <__vector_7>:
+		}
+	}
+}
+					
+ISR(TIMER0_OVF_vect)
+{
+ 144:	1f 92       	push	r1
+ 146:	0f 92       	push	r0
+ 148:	0f b6       	in	r0, 0x3f	; 63
+ 14a:	0f 92       	push	r0
+ 14c:	11 24       	eor	r1, r1
+ 14e:	8f 93       	push	r24
+ 150:	9f 93       	push	r25
+ 152:	ef 93       	push	r30
+ 154:	ff 93       	push	r31
+  switch(state)
+ 156:	80 91 6a 00 	lds	r24, 0x006A
+ 15a:	83 30       	cpi	r24, 0x03	; 3
+ 15c:	09 f4       	brne	.+2      	; 0x160 <__stack+0x1>
+ 15e:	95 c0       	rjmp	.+298    	; 0x28a <__stack+0x12b>
+ 160:	84 30       	cpi	r24, 0x04	; 4
+ 162:	30 f4       	brcc	.+12     	; 0x170 <__stack+0x11>
+ 164:	81 30       	cpi	r24, 0x01	; 1
+ 166:	f9 f0       	breq	.+62     	; 0x1a6 <__stack+0x47>
+ 168:	82 30       	cpi	r24, 0x02	; 2
+ 16a:	08 f0       	brcs	.+2      	; 0x16e <__stack+0xf>
+ 16c:	4d c0       	rjmp	.+154    	; 0x208 <__stack+0xa9>
+ 16e:	0a c0       	rjmp	.+20     	; 0x184 <__stack+0x25>
+ 170:	85 30       	cpi	r24, 0x05	; 5
+ 172:	09 f4       	brne	.+2      	; 0x176 <__stack+0x17>
+ 174:	3c c1       	rjmp	.+632    	; 0x3ee <__stack+0x28f>
+ 176:	85 30       	cpi	r24, 0x05	; 5
+ 178:	08 f4       	brcc	.+2      	; 0x17c <__stack+0x1d>
+ 17a:	d8 c0       	rjmp	.+432    	; 0x32c <__stack+0x1cd>
+ 17c:	86 30       	cpi	r24, 0x06	; 6
+ 17e:	09 f0       	breq	.+2      	; 0x182 <__stack+0x23>
+ 180:	b6 c1       	rjmp	.+876    	; 0x4ee <__stack+0x38f>
+ 182:	a5 c1       	rjmp	.+842    	; 0x4ce <__stack+0x36f>
+  {
+	case 0:
+
+		if(startISR == 1)
+ 184:	80 91 6b 00 	lds	r24, 0x006B
+ 188:	81 30       	cpi	r24, 0x01	; 1
+ 18a:	09 f0       	breq	.+2      	; 0x18e <__stack+0x2f>
+ 18c:	b0 c1       	rjmp	.+864    	; 0x4ee <__stack+0x38f>
+		{
+			// toggle speaker port
+     		PORTC ^= SPKR;
+ 18e:	85 b3       	in	r24, 0x15	; 21
+ 190:	90 e2       	ldi	r25, 0x20	; 32
+ 192:	89 27       	eor	r24, r25
+ 194:	85 bb       	out	0x15, r24	; 21
+
+     		// reload timer value (read from table)
+	 		TCNT0 = pgm_read_byte(&StartGameSound[ctr]);
+ 196:	e0 91 6d 00 	lds	r30, 0x006D
+ 19a:	f0 e0       	ldi	r31, 0x00	; 0
+ 19c:	e2 5d       	subi	r30, 0xD2	; 210
+ 19e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1a0:	c8 95       	lpm
+ 1a2:	e0 2d       	mov	r30, r0
+ 1a4:	a3 c1       	rjmp	.+838    	; 0x4ec <__stack+0x38d>
+		}
+		break;
+
+	case 1:
+		
+		if(startISR == 1)
+ 1a6:	80 91 6b 00 	lds	r24, 0x006B
+ 1aa:	81 30       	cpi	r24, 0x01	; 1
+ 1ac:	61 f4       	brne	.+24     	; 0x1c6 <__stack+0x67>
+		{
+			PORTC ^= SPKR;
+ 1ae:	85 b3       	in	r24, 0x15	; 21
+ 1b0:	90 e2       	ldi	r25, 0x20	; 32
+ 1b2:	89 27       	eor	r24, r25
+ 1b4:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 1b6:	e0 91 6d 00 	lds	r30, 0x006D
+ 1ba:	f0 e0       	ldi	r31, 0x00	; 0
+ 1bc:	e6 5d       	subi	r30, 0xD6	; 214
+ 1be:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1c0:	c8 95       	lpm
+ 1c2:	e0 2d       	mov	r30, r0
+ 1c4:	93 c1       	rjmp	.+806    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 2)
+ 1c6:	80 91 6b 00 	lds	r24, 0x006B
+ 1ca:	82 30       	cpi	r24, 0x02	; 2
+ 1cc:	61 f4       	brne	.+24     	; 0x1e6 <__stack+0x87>
+		{
+			PORTC ^= SPKR;
+ 1ce:	85 b3       	in	r24, 0x15	; 21
+ 1d0:	90 e2       	ldi	r25, 0x20	; 32
+ 1d2:	89 27       	eor	r24, r25
+ 1d4:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&WinRoundSound[ctr]);	
+ 1d6:	e0 91 6d 00 	lds	r30, 0x006D
+ 1da:	f0 e0       	ldi	r31, 0x00	; 0
+ 1dc:	ee 56       	subi	r30, 0x6E	; 110
+ 1de:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1e0:	c8 95       	lpm
+ 1e2:	e0 2d       	mov	r30, r0
+ 1e4:	83 c1       	rjmp	.+774    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 3)
+ 1e6:	80 91 6b 00 	lds	r24, 0x006B
+ 1ea:	83 30       	cpi	r24, 0x03	; 3
+ 1ec:	09 f0       	breq	.+2      	; 0x1f0 <__stack+0x91>
+ 1ee:	7f c1       	rjmp	.+766    	; 0x4ee <__stack+0x38f>
+		{
+			PORTC ^= SPKR;
+ 1f0:	85 b3       	in	r24, 0x15	; 21
+ 1f2:	90 e2       	ldi	r25, 0x20	; 32
+ 1f4:	89 27       	eor	r24, r25
+ 1f6:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&LoseRoundSound[ctr]);	
+ 1f8:	e0 91 6d 00 	lds	r30, 0x006D
+ 1fc:	f0 e0       	ldi	r31, 0x00	; 0
+ 1fe:	e7 59       	subi	r30, 0x97	; 151
+ 200:	ff 4f       	sbci	r31, 0xFF	; 255
+ 202:	c8 95       	lpm
+ 204:	e0 2d       	mov	r30, r0
+ 206:	72 c1       	rjmp	.+740    	; 0x4ec <__stack+0x38d>
+		
+		break;
+	
+	case 2:
+	
+		if(startISR == 1)
+ 208:	80 91 6b 00 	lds	r24, 0x006B
+ 20c:	81 30       	cpi	r24, 0x01	; 1
+ 20e:	61 f4       	brne	.+24     	; 0x228 <__stack+0xc9>
+		{
+			PORTC ^= SPKR;
+ 210:	85 b3       	in	r24, 0x15	; 21
+ 212:	90 e2       	ldi	r25, 0x20	; 32
+ 214:	89 27       	eor	r24, r25
+ 216:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 218:	e0 91 6d 00 	lds	r30, 0x006D
+ 21c:	f0 e0       	ldi	r31, 0x00	; 0
+ 21e:	e6 5d       	subi	r30, 0xD6	; 214
+ 220:	ff 4f       	sbci	r31, 0xFF	; 255
+ 222:	c8 95       	lpm
+ 224:	e0 2d       	mov	r30, r0
+ 226:	62 c1       	rjmp	.+708    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 2)
+ 228:	80 91 6b 00 	lds	r24, 0x006B
+ 22c:	82 30       	cpi	r24, 0x02	; 2
+ 22e:	61 f4       	brne	.+24     	; 0x248 <__stack+0xe9>
+		{
+			PORTC ^= SPKR;
+ 230:	85 b3       	in	r24, 0x15	; 21
+ 232:	90 e2       	ldi	r25, 0x20	; 32
+ 234:	89 27       	eor	r24, r25
+ 236:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 238:	e0 91 6d 00 	lds	r30, 0x006D
+ 23c:	f0 e0       	ldi	r31, 0x00	; 0
+ 23e:	e6 5d       	subi	r30, 0xD6	; 214
+ 240:	ff 4f       	sbci	r31, 0xFF	; 255
+ 242:	c8 95       	lpm
+ 244:	e0 2d       	mov	r30, r0
+ 246:	52 c1       	rjmp	.+676    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 3)
+ 248:	80 91 6b 00 	lds	r24, 0x006B
+ 24c:	83 30       	cpi	r24, 0x03	; 3
+ 24e:	61 f4       	brne	.+24     	; 0x268 <__stack+0x109>
+		{
+			PORTC ^= SPKR;
+ 250:	85 b3       	in	r24, 0x15	; 21
+ 252:	90 e2       	ldi	r25, 0x20	; 32
+ 254:	89 27       	eor	r24, r25
+ 256:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&LoseRoundSound[ctr]);
+ 258:	e0 91 6d 00 	lds	r30, 0x006D
+ 25c:	f0 e0       	ldi	r31, 0x00	; 0
+ 25e:	e7 59       	subi	r30, 0x97	; 151
+ 260:	ff 4f       	sbci	r31, 0xFF	; 255
+ 262:	c8 95       	lpm
+ 264:	e0 2d       	mov	r30, r0
+ 266:	42 c1       	rjmp	.+644    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 4)
+ 268:	80 91 6b 00 	lds	r24, 0x006B
+ 26c:	84 30       	cpi	r24, 0x04	; 4
+ 26e:	09 f0       	breq	.+2      	; 0x272 <__stack+0x113>
+ 270:	3e c1       	rjmp	.+636    	; 0x4ee <__stack+0x38f>
+		{
+			PORTC ^= SPKR;
+ 272:	85 b3       	in	r24, 0x15	; 21
+ 274:	90 e2       	ldi	r25, 0x20	; 32
+ 276:	89 27       	eor	r24, r25
+ 278:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&WinRoundSound[ctr]);	
+ 27a:	e0 91 6d 00 	lds	r30, 0x006D
+ 27e:	f0 e0       	ldi	r31, 0x00	; 0
+ 280:	ee 56       	subi	r30, 0x6E	; 110
+ 282:	ff 4f       	sbci	r31, 0xFF	; 255
+ 284:	c8 95       	lpm
+ 286:	e0 2d       	mov	r30, r0
+ 288:	31 c1       	rjmp	.+610    	; 0x4ec <__stack+0x38d>
+
+		break;
+	
+	case 3:
+
+		if(startISR == 1)
+ 28a:	80 91 6b 00 	lds	r24, 0x006B
+ 28e:	81 30       	cpi	r24, 0x01	; 1
+ 290:	61 f4       	brne	.+24     	; 0x2aa <__stack+0x14b>
+		{
+			PORTC ^= SPKR;
+ 292:	85 b3       	in	r24, 0x15	; 21
+ 294:	90 e2       	ldi	r25, 0x20	; 32
+ 296:	89 27       	eor	r24, r25
+ 298:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 29a:	e0 91 6d 00 	lds	r30, 0x006D
+ 29e:	f0 e0       	ldi	r31, 0x00	; 0
+ 2a0:	e6 5d       	subi	r30, 0xD6	; 214
+ 2a2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2a4:	c8 95       	lpm
+ 2a6:	e0 2d       	mov	r30, r0
+ 2a8:	21 c1       	rjmp	.+578    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 2)
+ 2aa:	80 91 6b 00 	lds	r24, 0x006B
+ 2ae:	82 30       	cpi	r24, 0x02	; 2
+ 2b0:	61 f4       	brne	.+24     	; 0x2ca <__stack+0x16b>
+		{
+			PORTC ^= SPKR;
+ 2b2:	85 b3       	in	r24, 0x15	; 21
+ 2b4:	90 e2       	ldi	r25, 0x20	; 32
+ 2b6:	89 27       	eor	r24, r25
+ 2b8:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 2ba:	e0 91 6d 00 	lds	r30, 0x006D
+ 2be:	f0 e0       	ldi	r31, 0x00	; 0
+ 2c0:	e6 5d       	subi	r30, 0xD6	; 214
+ 2c2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2c4:	c8 95       	lpm
+ 2c6:	e0 2d       	mov	r30, r0
+ 2c8:	11 c1       	rjmp	.+546    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 3)
+ 2ca:	80 91 6b 00 	lds	r24, 0x006B
+ 2ce:	83 30       	cpi	r24, 0x03	; 3
+ 2d0:	61 f4       	brne	.+24     	; 0x2ea <__stack+0x18b>
+		{
+			PORTC ^= SPKR;
+ 2d2:	85 b3       	in	r24, 0x15	; 21
+ 2d4:	90 e2       	ldi	r25, 0x20	; 32
+ 2d6:	89 27       	eor	r24, r25
+ 2d8:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 2da:	e0 91 6d 00 	lds	r30, 0x006D
+ 2de:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e0:	e6 5d       	subi	r30, 0xD6	; 214
+ 2e2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2e4:	c8 95       	lpm
+ 2e6:	e0 2d       	mov	r30, r0
+ 2e8:	01 c1       	rjmp	.+514    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 4)
+ 2ea:	80 91 6b 00 	lds	r24, 0x006B
+ 2ee:	84 30       	cpi	r24, 0x04	; 4
+ 2f0:	61 f4       	brne	.+24     	; 0x30a <__stack+0x1ab>
+		{
+			PORTC ^= SPKR;
+ 2f2:	85 b3       	in	r24, 0x15	; 21
+ 2f4:	90 e2       	ldi	r25, 0x20	; 32
+ 2f6:	89 27       	eor	r24, r25
+ 2f8:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&LoseRoundSound[ctr]);	
+ 2fa:	e0 91 6d 00 	lds	r30, 0x006D
+ 2fe:	f0 e0       	ldi	r31, 0x00	; 0
+ 300:	e7 59       	subi	r30, 0x97	; 151
+ 302:	ff 4f       	sbci	r31, 0xFF	; 255
+ 304:	c8 95       	lpm
+ 306:	e0 2d       	mov	r30, r0
+ 308:	f1 c0       	rjmp	.+482    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 5)
+ 30a:	80 91 6b 00 	lds	r24, 0x006B
+ 30e:	85 30       	cpi	r24, 0x05	; 5
+ 310:	09 f0       	breq	.+2      	; 0x314 <__stack+0x1b5>
+ 312:	ed c0       	rjmp	.+474    	; 0x4ee <__stack+0x38f>
+		{
+			PORTC ^= SPKR;
+ 314:	85 b3       	in	r24, 0x15	; 21
+ 316:	90 e2       	ldi	r25, 0x20	; 32
+ 318:	89 27       	eor	r24, r25
+ 31a:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&WinRoundSound[ctr]);	
+ 31c:	e0 91 6d 00 	lds	r30, 0x006D
+ 320:	f0 e0       	ldi	r31, 0x00	; 0
+ 322:	ee 56       	subi	r30, 0x6E	; 110
+ 324:	ff 4f       	sbci	r31, 0xFF	; 255
+ 326:	c8 95       	lpm
+ 328:	e0 2d       	mov	r30, r0
+ 32a:	e0 c0       	rjmp	.+448    	; 0x4ec <__stack+0x38d>
+
+		break;
+	
+	case 4:
+
+		if(startISR == 1)
+ 32c:	80 91 6b 00 	lds	r24, 0x006B
+ 330:	81 30       	cpi	r24, 0x01	; 1
+ 332:	61 f4       	brne	.+24     	; 0x34c <__stack+0x1ed>
+		{
+			PORTC ^= SPKR;
+ 334:	85 b3       	in	r24, 0x15	; 21
+ 336:	90 e2       	ldi	r25, 0x20	; 32
+ 338:	89 27       	eor	r24, r25
+ 33a:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 33c:	e0 91 6d 00 	lds	r30, 0x006D
+ 340:	f0 e0       	ldi	r31, 0x00	; 0
+ 342:	e6 5d       	subi	r30, 0xD6	; 214
+ 344:	ff 4f       	sbci	r31, 0xFF	; 255
+ 346:	c8 95       	lpm
+ 348:	e0 2d       	mov	r30, r0
+ 34a:	d0 c0       	rjmp	.+416    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 2)
+ 34c:	80 91 6b 00 	lds	r24, 0x006B
+ 350:	82 30       	cpi	r24, 0x02	; 2
+ 352:	61 f4       	brne	.+24     	; 0x36c <__stack+0x20d>
+		{
+			PORTC ^= SPKR;
+ 354:	85 b3       	in	r24, 0x15	; 21
+ 356:	90 e2       	ldi	r25, 0x20	; 32
+ 358:	89 27       	eor	r24, r25
+ 35a:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 35c:	e0 91 6d 00 	lds	r30, 0x006D
+ 360:	f0 e0       	ldi	r31, 0x00	; 0
+ 362:	e6 5d       	subi	r30, 0xD6	; 214
+ 364:	ff 4f       	sbci	r31, 0xFF	; 255
+ 366:	c8 95       	lpm
+ 368:	e0 2d       	mov	r30, r0
+ 36a:	c0 c0       	rjmp	.+384    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 3)
+ 36c:	80 91 6b 00 	lds	r24, 0x006B
+ 370:	83 30       	cpi	r24, 0x03	; 3
+ 372:	61 f4       	brne	.+24     	; 0x38c <__stack+0x22d>
+		{
+			PORTC ^= SPKR;
+ 374:	85 b3       	in	r24, 0x15	; 21
+ 376:	90 e2       	ldi	r25, 0x20	; 32
+ 378:	89 27       	eor	r24, r25
+ 37a:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 37c:	e0 91 6d 00 	lds	r30, 0x006D
+ 380:	f0 e0       	ldi	r31, 0x00	; 0
+ 382:	e6 5d       	subi	r30, 0xD6	; 214
+ 384:	ff 4f       	sbci	r31, 0xFF	; 255
+ 386:	c8 95       	lpm
+ 388:	e0 2d       	mov	r30, r0
+ 38a:	b0 c0       	rjmp	.+352    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 4)
+ 38c:	80 91 6b 00 	lds	r24, 0x006B
+ 390:	84 30       	cpi	r24, 0x04	; 4
+ 392:	61 f4       	brne	.+24     	; 0x3ac <__stack+0x24d>
+		{
+			PORTC ^= SPKR;
+ 394:	85 b3       	in	r24, 0x15	; 21
+ 396:	90 e2       	ldi	r25, 0x20	; 32
+ 398:	89 27       	eor	r24, r25
+ 39a:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);	
+ 39c:	e0 91 6d 00 	lds	r30, 0x006D
+ 3a0:	f0 e0       	ldi	r31, 0x00	; 0
+ 3a2:	e6 5d       	subi	r30, 0xD6	; 214
+ 3a4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3a6:	c8 95       	lpm
+ 3a8:	e0 2d       	mov	r30, r0
+ 3aa:	a0 c0       	rjmp	.+320    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 5)
+ 3ac:	80 91 6b 00 	lds	r24, 0x006B
+ 3b0:	85 30       	cpi	r24, 0x05	; 5
+ 3b2:	61 f4       	brne	.+24     	; 0x3cc <__stack+0x26d>
+		{
+			PORTC ^= SPKR;
+ 3b4:	85 b3       	in	r24, 0x15	; 21
+ 3b6:	90 e2       	ldi	r25, 0x20	; 32
+ 3b8:	89 27       	eor	r24, r25
+ 3ba:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&LoseRoundSound[ctr]);	
+ 3bc:	e0 91 6d 00 	lds	r30, 0x006D
+ 3c0:	f0 e0       	ldi	r31, 0x00	; 0
+ 3c2:	e7 59       	subi	r30, 0x97	; 151
+ 3c4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3c6:	c8 95       	lpm
+ 3c8:	e0 2d       	mov	r30, r0
+ 3ca:	90 c0       	rjmp	.+288    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 6)
+ 3cc:	80 91 6b 00 	lds	r24, 0x006B
+ 3d0:	86 30       	cpi	r24, 0x06	; 6
+ 3d2:	09 f0       	breq	.+2      	; 0x3d6 <__stack+0x277>
+ 3d4:	8c c0       	rjmp	.+280    	; 0x4ee <__stack+0x38f>
+		{
+			PORTC ^= SPKR;
+ 3d6:	85 b3       	in	r24, 0x15	; 21
+ 3d8:	90 e2       	ldi	r25, 0x20	; 32
+ 3da:	89 27       	eor	r24, r25
+ 3dc:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&WinRoundSound[ctr]);	
+ 3de:	e0 91 6d 00 	lds	r30, 0x006D
+ 3e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 3e4:	ee 56       	subi	r30, 0x6E	; 110
+ 3e6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3e8:	c8 95       	lpm
+ 3ea:	e0 2d       	mov	r30, r0
+ 3ec:	7f c0       	rjmp	.+254    	; 0x4ec <__stack+0x38d>
+
+		break;
+	
+	case 5:
+
+		if(startISR == 1)
+ 3ee:	80 91 6b 00 	lds	r24, 0x006B
+ 3f2:	81 30       	cpi	r24, 0x01	; 1
+ 3f4:	61 f4       	brne	.+24     	; 0x40e <__stack+0x2af>
+		{
+			PORTC ^= SPKR;
+ 3f6:	85 b3       	in	r24, 0x15	; 21
+ 3f8:	90 e2       	ldi	r25, 0x20	; 32
+ 3fa:	89 27       	eor	r24, r25
+ 3fc:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 3fe:	e0 91 6d 00 	lds	r30, 0x006D
+ 402:	f0 e0       	ldi	r31, 0x00	; 0
+ 404:	e6 5d       	subi	r30, 0xD6	; 214
+ 406:	ff 4f       	sbci	r31, 0xFF	; 255
+ 408:	c8 95       	lpm
+ 40a:	e0 2d       	mov	r30, r0
+ 40c:	6f c0       	rjmp	.+222    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 2)
+ 40e:	80 91 6b 00 	lds	r24, 0x006B
+ 412:	82 30       	cpi	r24, 0x02	; 2
+ 414:	61 f4       	brne	.+24     	; 0x42e <__stack+0x2cf>
+		{
+			PORTC ^= SPKR;
+ 416:	85 b3       	in	r24, 0x15	; 21
+ 418:	90 e2       	ldi	r25, 0x20	; 32
+ 41a:	89 27       	eor	r24, r25
+ 41c:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 41e:	e0 91 6d 00 	lds	r30, 0x006D
+ 422:	f0 e0       	ldi	r31, 0x00	; 0
+ 424:	e6 5d       	subi	r30, 0xD6	; 214
+ 426:	ff 4f       	sbci	r31, 0xFF	; 255
+ 428:	c8 95       	lpm
+ 42a:	e0 2d       	mov	r30, r0
+ 42c:	5f c0       	rjmp	.+190    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+		
+		if(startISR == 3)
+ 42e:	80 91 6b 00 	lds	r24, 0x006B
+ 432:	83 30       	cpi	r24, 0x03	; 3
+ 434:	61 f4       	brne	.+24     	; 0x44e <__stack+0x2ef>
+		{
+			PORTC ^= SPKR;
+ 436:	85 b3       	in	r24, 0x15	; 21
+ 438:	90 e2       	ldi	r25, 0x20	; 32
+ 43a:	89 27       	eor	r24, r25
+ 43c:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);
+ 43e:	e0 91 6d 00 	lds	r30, 0x006D
+ 442:	f0 e0       	ldi	r31, 0x00	; 0
+ 444:	e6 5d       	subi	r30, 0xD6	; 214
+ 446:	ff 4f       	sbci	r31, 0xFF	; 255
+ 448:	c8 95       	lpm
+ 44a:	e0 2d       	mov	r30, r0
+ 44c:	4f c0       	rjmp	.+158    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 4)
+ 44e:	80 91 6b 00 	lds	r24, 0x006B
+ 452:	84 30       	cpi	r24, 0x04	; 4
+ 454:	61 f4       	brne	.+24     	; 0x46e <__stack+0x30f>
+		{
+			PORTC ^= SPKR;
+ 456:	85 b3       	in	r24, 0x15	; 21
+ 458:	90 e2       	ldi	r25, 0x20	; 32
+ 45a:	89 27       	eor	r24, r25
+ 45c:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);	
+ 45e:	e0 91 6d 00 	lds	r30, 0x006D
+ 462:	f0 e0       	ldi	r31, 0x00	; 0
+ 464:	e6 5d       	subi	r30, 0xD6	; 214
+ 466:	ff 4f       	sbci	r31, 0xFF	; 255
+ 468:	c8 95       	lpm
+ 46a:	e0 2d       	mov	r30, r0
+ 46c:	3f c0       	rjmp	.+126    	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 5)
+ 46e:	80 91 6b 00 	lds	r24, 0x006B
+ 472:	85 30       	cpi	r24, 0x05	; 5
+ 474:	61 f4       	brne	.+24     	; 0x48e <__stack+0x32f>
+		{
+			PORTC ^= SPKR;
+ 476:	85 b3       	in	r24, 0x15	; 21
+ 478:	90 e2       	ldi	r25, 0x20	; 32
+ 47a:	89 27       	eor	r24, r25
+ 47c:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&ButtonSounds[ctr]);	
+ 47e:	e0 91 6d 00 	lds	r30, 0x006D
+ 482:	f0 e0       	ldi	r31, 0x00	; 0
+ 484:	e6 5d       	subi	r30, 0xD6	; 214
+ 486:	ff 4f       	sbci	r31, 0xFF	; 255
+ 488:	c8 95       	lpm
+ 48a:	e0 2d       	mov	r30, r0
+ 48c:	2f c0       	rjmp	.+94     	; 0x4ec <__stack+0x38d>
+			break;
+		}
+	
+		if(startISR == 6)
+ 48e:	80 91 6b 00 	lds	r24, 0x006B
+ 492:	86 30       	cpi	r24, 0x06	; 6
+ 494:	61 f4       	brne	.+24     	; 0x4ae <__stack+0x34f>
+		{
+			PORTC ^= SPKR;
+ 496:	85 b3       	in	r24, 0x15	; 21
+ 498:	90 e2       	ldi	r25, 0x20	; 32
+ 49a:	89 27       	eor	r24, r25
+ 49c:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&LoseRoundSound[ctr]);	
+ 49e:	e0 91 6d 00 	lds	r30, 0x006D
+ 4a2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4a4:	e7 59       	subi	r30, 0x97	; 151
+ 4a6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4a8:	c8 95       	lpm
+ 4aa:	e0 2d       	mov	r30, r0
+ 4ac:	1f c0       	rjmp	.+62     	; 0x4ec <__stack+0x38d>
+			break;
+		}
+
+		if(startISR == 7)
+ 4ae:	80 91 6b 00 	lds	r24, 0x006B
+ 4b2:	87 30       	cpi	r24, 0x07	; 7
+ 4b4:	e1 f4       	brne	.+56     	; 0x4ee <__stack+0x38f>
+		{
+			PORTC ^= SPKR;
+ 4b6:	85 b3       	in	r24, 0x15	; 21
+ 4b8:	90 e2       	ldi	r25, 0x20	; 32
+ 4ba:	89 27       	eor	r24, r25
+ 4bc:	85 bb       	out	0x15, r24	; 21
+			TCNT0 = pgm_read_byte(&WinRoundSound[ctr]);	
+ 4be:	e0 91 6d 00 	lds	r30, 0x006D
+ 4c2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4c4:	ee 56       	subi	r30, 0x6E	; 110
+ 4c6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4c8:	c8 95       	lpm
+ 4ca:	e0 2d       	mov	r30, r0
+ 4cc:	0f c0       	rjmp	.+30     	; 0x4ec <__stack+0x38d>
+
+		break;
+
+	case 6:
+
+		if(startISR == 1)
+ 4ce:	80 91 6b 00 	lds	r24, 0x006B
+ 4d2:	81 30       	cpi	r24, 0x01	; 1
+ 4d4:	61 f4       	brne	.+24     	; 0x4ee <__stack+0x38f>
+		{
+			// toggle speaker port
+     		PORTC ^= SPKR;
+ 4d6:	85 b3       	in	r24, 0x15	; 21
+ 4d8:	90 e2       	ldi	r25, 0x20	; 32
+ 4da:	89 27       	eor	r24, r25
+ 4dc:	85 bb       	out	0x15, r24	; 21
+
+     		// reload timer value (read from table)
+	 		TCNT0 = pgm_read_byte(&WinGameSound[ctr]);
+ 4de:	e0 91 6d 00 	lds	r30, 0x006D
+ 4e2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4e4:	ed 54       	subi	r30, 0x4D	; 77
+ 4e6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4e8:	c8 95       	lpm
+ 4ea:	e0 2d       	mov	r30, r0
+ 4ec:	e2 bf       	out	0x32, r30	; 50
+		}
+		break;
+		
+	}
+
+}
+ 4ee:	ff 91       	pop	r31
+ 4f0:	ef 91       	pop	r30
+ 4f2:	9f 91       	pop	r25
+ 4f4:	8f 91       	pop	r24
+ 4f6:	0f 90       	pop	r0
+ 4f8:	0f be       	out	0x3f, r0	; 63
+ 4fa:	0f 90       	pop	r0
+ 4fc:	1f 90       	pop	r1
+ 4fe:	18 95       	reti
+
+00000500 <reset>:
+
+void reset()
+{
+	var1 = 0;
+ 500:	10 92 6c 00 	sts	0x006C, r1
+	var = 0;
+ 504:	10 92 6e 00 	sts	0x006E, r1
+	x_old = 0x0F;
+ 508:	8f e0       	ldi	r24, 0x0F	; 15
+ 50a:	80 93 69 00 	sts	0x0069, r24
+}
+ 50e:	08 95       	ret
+
+00000510 <playNOTE>:
+
+void playNOTE(unsigned char x, unsigned char isr)
+{
+ 510:	78 2f       	mov	r23, r24
+ 512:	20 e0       	ldi	r18, 0x00	; 0
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 514:	49 e0       	ldi	r20, 0x09	; 9
+ 516:	50 e0       	ldi	r21, 0x00	; 0
+ 518:	09 c0       	rjmp	.+18     	; 0x52c <playNOTE+0x1c>
+ 51a:	e4 2f       	mov	r30, r20
+ 51c:	f5 2f       	mov	r31, r21
+ 51e:	31 97       	sbiw	r30, 0x01	; 1
+ 520:	f1 f7       	brne	.-4      	; 0x51e <playNOTE+0xe>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 522:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 524:	d1 f7       	brne	.-12     	; 0x51a <playNOTE+0xa>
+}
+
+void delayMethod(unsigned char x)
+{
+	unsigned char y = 0;
+	for(y = 0; y < x; y++)
+ 526:	2f 5f       	subi	r18, 0xFF	; 255
+ 528:	22 30       	cpi	r18, 0x02	; 2
+ 52a:	19 f0       	breq	.+6      	; 0x532 <playNOTE+0x22>
+ 52c:	80 e1       	ldi	r24, 0x10	; 16
+ 52e:	97 e2       	ldi	r25, 0x27	; 39
+ 530:	f4 cf       	rjmp	.-24     	; 0x51a <playNOTE+0xa>
+
+void playNOTE(unsigned char x, unsigned char isr)
+{
+
+	delayMethod(2);
+	PORTA = LEDs[x];	
+ 532:	27 2f       	mov	r18, r23
+ 534:	30 e0       	ldi	r19, 0x00	; 0
+ 536:	e2 2f       	mov	r30, r18
+ 538:	f3 2f       	mov	r31, r19
+ 53a:	e0 5a       	subi	r30, 0xA0	; 160
+ 53c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 53e:	80 81       	ld	r24, Z
+ 540:	8b bb       	out	0x1b, r24	; 27
+	
+	startISR = isr;
+ 542:	60 93 6b 00 	sts	0x006B, r22
+				
+	for(ctr = x; ctr < x+1; ctr++)
+ 546:	70 93 6d 00 	sts	0x006D, r23
+ 54a:	49 e0       	ldi	r20, 0x09	; 9
+ 54c:	50 e0       	ldi	r21, 0x00	; 0
+ 54e:	0d c0       	rjmp	.+26     	; 0x56a <playNOTE+0x5a>
+ 550:	80 e1       	ldi	r24, 0x10	; 16
+ 552:	97 e2       	ldi	r25, 0x27	; 39
+ 554:	e4 2f       	mov	r30, r20
+ 556:	f5 2f       	mov	r31, r21
+ 558:	31 97       	sbiw	r30, 0x01	; 1
+ 55a:	f1 f7       	brne	.-4      	; 0x558 <playNOTE+0x48>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 55c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 55e:	d1 f7       	brne	.-12     	; 0x554 <playNOTE+0x44>
+ 560:	80 91 6d 00 	lds	r24, 0x006D
+ 564:	8f 5f       	subi	r24, 0xFF	; 255
+ 566:	80 93 6d 00 	sts	0x006D, r24
+ 56a:	80 91 6d 00 	lds	r24, 0x006D
+ 56e:	90 e0       	ldi	r25, 0x00	; 0
+ 570:	28 17       	cp	r18, r24
+ 572:	39 07       	cpc	r19, r25
+ 574:	6c f7       	brge	.-38     	; 0x550 <playNOTE+0x40>
+ 576:	80 e1       	ldi	r24, 0x10	; 16
+ 578:	97 e2       	ldi	r25, 0x27	; 39
+ 57a:	29 e0       	ldi	r18, 0x09	; 9
+ 57c:	30 e0       	ldi	r19, 0x00	; 0
+ 57e:	e2 2f       	mov	r30, r18
+ 580:	f3 2f       	mov	r31, r19
+ 582:	31 97       	sbiw	r30, 0x01	; 1
+ 584:	f1 f7       	brne	.-4      	; 0x582 <playNOTE+0x72>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 586:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 588:	d1 f7       	brne	.-12     	; 0x57e <playNOTE+0x6e>
+		_delay_ms(1000);
+
+	_delay_ms(1000);
+	PORTA = 0x0F;
+ 58a:	8f e0       	ldi	r24, 0x0F	; 15
+ 58c:	8b bb       	out	0x1b, r24	; 27
+
+	startISR = 0;
+ 58e:	10 92 6b 00 	sts	0x006B, r1
+				
+}
+ 592:	08 95       	ret
+
+00000594 <initialize>:
+
+
+void initialize()
+{
+	// initialize speaker port
+ 	DDRC = 0xFF;  // set as output
+ 594:	8f ef       	ldi	r24, 0xFF	; 255
+ 596:	84 bb       	out	0x14, r24	; 20
+  	PORTC = ~SPKR;  // turn off speaker
+ 598:	8f ed       	ldi	r24, 0xDF	; 223
+ 59a:	85 bb       	out	0x15, r24	; 21
+
+  	// initialize switch/LED port
+  	DDRA = 0xF0;   // set PA0-3 as input
+ 59c:	80 ef       	ldi	r24, 0xF0	; 240
+ 59e:	8a bb       	out	0x1a, r24	; 26
+  	PORTA = 0x0F;  // pull-up switch ports
+ 5a0:	8f e0       	ldi	r24, 0x0F	; 15
+ 5a2:	8b bb       	out	0x1b, r24	; 27
+
+  	// initialize Timer0 interrupts
+  	TCCR0 = 0x04; // prescaler = 256
+ 5a4:	84 e0       	ldi	r24, 0x04	; 4
+ 5a6:	83 bf       	out	0x33, r24	; 51
+  	TIMSK = 0x02; // initialize TOV0 interrupt
+ 5a8:	82 e0       	ldi	r24, 0x02	; 2
+ 5aa:	89 bf       	out	0x39, r24	; 57
+  	sei();
+ 5ac:	78 94       	sei
+}
+ 5ae:	08 95       	ret
+
+000005b0 <delayMethod>:
+
+void delayMethod(unsigned char x)
+{
+ 5b0:	90 e0       	ldi	r25, 0x00	; 0
+ 5b2:	49 e0       	ldi	r20, 0x09	; 9
+ 5b4:	50 e0       	ldi	r21, 0x00	; 0
+ 5b6:	0a c0       	rjmp	.+20     	; 0x5cc <delayMethod+0x1c>
+	unsigned char y = 0;
+	for(y = 0; y < x; y++)
+ 5b8:	20 e1       	ldi	r18, 0x10	; 16
+ 5ba:	37 e2       	ldi	r19, 0x27	; 39
+ 5bc:	e4 2f       	mov	r30, r20
+ 5be:	f5 2f       	mov	r31, r21
+ 5c0:	31 97       	sbiw	r30, 0x01	; 1
+ 5c2:	f1 f7       	brne	.-4      	; 0x5c0 <delayMethod+0x10>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 5c4:	21 50       	subi	r18, 0x01	; 1
+ 5c6:	30 40       	sbci	r19, 0x00	; 0
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 5c8:	c9 f7       	brne	.-14     	; 0x5bc <delayMethod+0xc>
+ 5ca:	9f 5f       	subi	r25, 0xFF	; 255
+ 5cc:	98 17       	cp	r25, r24
+ 5ce:	a0 f3       	brcs	.-24     	; 0x5b8 <delayMethod+0x8>
+		_delay_ms(1000);
+}
+ 5d0:	08 95       	ret
+
+000005d2 <winMethod>:
+
+void winMethod(unsigned char isr)
+{		
+	startISR = isr;
+ 5d2:	80 93 6b 00 	sts	0x006B, r24
+							
+	for(ctr = 0; ctr < 33; ctr++)	//Playing Win Round Sound
+ 5d6:	10 92 6d 00 	sts	0x006D, r1
+	{ 	
+		PORTA = LEDs[0];
+ 5da:	b0 91 60 00 	lds	r27, 0x0060
+		_delay_ms(500);
+		PORTA = LEDs[1];
+ 5de:	a0 91 61 00 	lds	r26, 0x0061
+		_delay_ms(750);
+		PORTA = LEDs[2];
+ 5e2:	70 91 62 00 	lds	r23, 0x0062
+		_delay_ms(750);
+		PORTA = LEDs[3];
+ 5e6:	60 91 63 00 	lds	r22, 0x0063
+ 5ea:	4b ef       	ldi	r20, 0xFB	; 251
+ 5ec:	53 eb       	ldi	r21, 0xB3	; 179
+{		
+	startISR = isr;
+							
+	for(ctr = 0; ctr < 33; ctr++)	//Playing Win Round Sound
+	{ 	
+		PORTA = LEDs[0];
+ 5ee:	29 e0       	ldi	r18, 0x09	; 9
+ 5f0:	30 e0       	ldi	r19, 0x00	; 0
+ 5f2:	21 c0       	rjmp	.+66     	; 0x636 <winMethod+0x64>
+ 5f4:	bb bb       	out	0x1b, r27	; 27
+ 5f6:	84 2f       	mov	r24, r20
+ 5f8:	95 2f       	mov	r25, r21
+ 5fa:	01 97       	sbiw	r24, 0x01	; 1
+ 5fc:	f1 f7       	brne	.-4      	; 0x5fa <winMethod+0x28>
+		_delay_ms(500);
+		PORTA = LEDs[1];
+ 5fe:	ab bb       	out	0x1b, r26	; 27
+ 600:	8c e4       	ldi	r24, 0x4C	; 76
+ 602:	9d e1       	ldi	r25, 0x1D	; 29
+ 604:	e2 2f       	mov	r30, r18
+ 606:	f3 2f       	mov	r31, r19
+ 608:	31 97       	sbiw	r30, 0x01	; 1
+ 60a:	f1 f7       	brne	.-4      	; 0x608 <winMethod+0x36>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 60c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 60e:	d1 f7       	brne	.-12     	; 0x604 <winMethod+0x32>
+		_delay_ms(750);
+		PORTA = LEDs[2];
+ 610:	7b bb       	out	0x1b, r23	; 27
+ 612:	8c e4       	ldi	r24, 0x4C	; 76
+ 614:	9d e1       	ldi	r25, 0x1D	; 29
+ 616:	e2 2f       	mov	r30, r18
+ 618:	f3 2f       	mov	r31, r19
+ 61a:	31 97       	sbiw	r30, 0x01	; 1
+ 61c:	f1 f7       	brne	.-4      	; 0x61a <winMethod+0x48>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 61e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 620:	d1 f7       	brne	.-12     	; 0x616 <winMethod+0x44>
+		_delay_ms(750);
+		PORTA = LEDs[3];
+ 622:	6b bb       	out	0x1b, r22	; 27
+ 624:	84 2f       	mov	r24, r20
+ 626:	95 2f       	mov	r25, r21
+ 628:	01 97       	sbiw	r24, 0x01	; 1
+ 62a:	f1 f7       	brne	.-4      	; 0x628 <winMethod+0x56>
+
+void winMethod(unsigned char isr)
+{		
+	startISR = isr;
+							
+	for(ctr = 0; ctr < 33; ctr++)	//Playing Win Round Sound
+ 62c:	80 91 6d 00 	lds	r24, 0x006D
+ 630:	8f 5f       	subi	r24, 0xFF	; 255
+ 632:	80 93 6d 00 	sts	0x006D, r24
+ 636:	80 91 6d 00 	lds	r24, 0x006D
+ 63a:	81 32       	cpi	r24, 0x21	; 33
+ 63c:	d8 f2       	brcs	.-74     	; 0x5f4 <winMethod+0x22>
+		_delay_ms(750);
+		PORTA = LEDs[3];
+		_delay_ms(500);
+	}
+	
+	PORTA = 0x0F;
+ 63e:	8f e0       	ldi	r24, 0x0F	; 15
+ 640:	8b bb       	out	0x1b, r24	; 27
+	startISR = 0;
+ 642:	10 92 6b 00 	sts	0x006B, r1
+}
+ 646:	08 95       	ret
+
+00000648 <loseMethod>:
+
+void loseMethod(unsigned char isr)
+{
+	
+	startISR = isr;
+ 648:	80 93 6b 00 	sts	0x006B, r24
+
+	for(ctr = 0; ctr < 41; ctr++)	//Playing Lose Round Sound 
+ 64c:	10 92 6d 00 	sts	0x006D, r1
+	{	
+			PORTA = 0x9F;
+ 650:	5f e9       	ldi	r21, 0x9F	; 159
+ 652:	29 e0       	ldi	r18, 0x09	; 9
+ 654:	30 e0       	ldi	r19, 0x00	; 0
+			_delay_ms(1500);
+			PORTA = 0x6F;
+ 656:	4f e6       	ldi	r20, 0x6F	; 111
+ 658:	17 c0       	rjmp	.+46     	; 0x688 <loseMethod+0x40>
+	
+	startISR = isr;
+
+	for(ctr = 0; ctr < 41; ctr++)	//Playing Lose Round Sound 
+	{	
+			PORTA = 0x9F;
+ 65a:	5b bb       	out	0x1b, r21	; 27
+ 65c:	88 e9       	ldi	r24, 0x98	; 152
+ 65e:	9a e3       	ldi	r25, 0x3A	; 58
+ 660:	e2 2f       	mov	r30, r18
+ 662:	f3 2f       	mov	r31, r19
+ 664:	31 97       	sbiw	r30, 0x01	; 1
+ 666:	f1 f7       	brne	.-4      	; 0x664 <loseMethod+0x1c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 668:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 66a:	d1 f7       	brne	.-12     	; 0x660 <loseMethod+0x18>
+			_delay_ms(1500);
+			PORTA = 0x6F;
+ 66c:	4b bb       	out	0x1b, r20	; 27
+ 66e:	88 e9       	ldi	r24, 0x98	; 152
+ 670:	9a e3       	ldi	r25, 0x3A	; 58
+ 672:	e2 2f       	mov	r30, r18
+ 674:	f3 2f       	mov	r31, r19
+ 676:	31 97       	sbiw	r30, 0x01	; 1
+ 678:	f1 f7       	brne	.-4      	; 0x676 <loseMethod+0x2e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 67a:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 67c:	d1 f7       	brne	.-12     	; 0x672 <loseMethod+0x2a>
+void loseMethod(unsigned char isr)
+{
+	
+	startISR = isr;
+
+	for(ctr = 0; ctr < 41; ctr++)	//Playing Lose Round Sound 
+ 67e:	80 91 6d 00 	lds	r24, 0x006D
+ 682:	8f 5f       	subi	r24, 0xFF	; 255
+ 684:	80 93 6d 00 	sts	0x006D, r24
+ 688:	80 91 6d 00 	lds	r24, 0x006D
+ 68c:	89 32       	cpi	r24, 0x29	; 41
+ 68e:	28 f3       	brcs	.-54     	; 0x65a <loseMethod+0x12>
+			PORTA = 0x6F;
+			_delay_ms(1500);
+	}
+	
+	
+	PORTA = 0x0F;		
+ 690:	8f e0       	ldi	r24, 0x0F	; 15
+ 692:	8b bb       	out	0x1b, r24	; 27
+	startISR = 0;
+ 694:	10 92 6b 00 	sts	0x006B, r1
+	state = 0;
+ 698:	10 92 6a 00 	sts	0x006A, r1
+}
+ 69c:	08 95       	ret
+
+0000069e <winGameSequence>:
+
+void winGameSequence()
+{		
+	startISR = 1;			
+ 69e:	81 e0       	ldi	r24, 0x01	; 1
+ 6a0:	80 93 6b 00 	sts	0x006B, r24
+	for(ctr = 0; ctr < 57; ctr++)	//Playing End Game Sound	
+ 6a4:	10 92 6d 00 	sts	0x006D, r1
+	{	
+		PORTA = LEDs[0];
+ 6a8:	70 91 60 00 	lds	r23, 0x0060
+		_delay_ms(750);
+		PORTA = LEDs[1];
+ 6ac:	60 91 61 00 	lds	r22, 0x0061
+		_delay_ms(1000);
+		PORTA = LEDs[2];
+ 6b0:	50 91 62 00 	lds	r21, 0x0062
+		_delay_ms(1000);
+		PORTA = LEDs[3];
+ 6b4:	40 91 63 00 	lds	r20, 0x0063
+ 6b8:	29 e0       	ldi	r18, 0x09	; 9
+ 6ba:	30 e0       	ldi	r19, 0x00	; 0
+ 6bc:	29 c0       	rjmp	.+82     	; 0x710 <winGameSequence+0x72>
+void winGameSequence()
+{		
+	startISR = 1;			
+	for(ctr = 0; ctr < 57; ctr++)	//Playing End Game Sound	
+	{	
+		PORTA = LEDs[0];
+ 6be:	7b bb       	out	0x1b, r23	; 27
+ 6c0:	8c e4       	ldi	r24, 0x4C	; 76
+ 6c2:	9d e1       	ldi	r25, 0x1D	; 29
+ 6c4:	e2 2f       	mov	r30, r18
+ 6c6:	f3 2f       	mov	r31, r19
+ 6c8:	31 97       	sbiw	r30, 0x01	; 1
+ 6ca:	f1 f7       	brne	.-4      	; 0x6c8 <winGameSequence+0x2a>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 6cc:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 6ce:	d1 f7       	brne	.-12     	; 0x6c4 <winGameSequence+0x26>
+		_delay_ms(750);
+		PORTA = LEDs[1];
+ 6d0:	6b bb       	out	0x1b, r22	; 27
+ 6d2:	80 e1       	ldi	r24, 0x10	; 16
+ 6d4:	97 e2       	ldi	r25, 0x27	; 39
+ 6d6:	e2 2f       	mov	r30, r18
+ 6d8:	f3 2f       	mov	r31, r19
+ 6da:	31 97       	sbiw	r30, 0x01	; 1
+ 6dc:	f1 f7       	brne	.-4      	; 0x6da <winGameSequence+0x3c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 6de:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 6e0:	d1 f7       	brne	.-12     	; 0x6d6 <winGameSequence+0x38>
+		_delay_ms(1000);
+		PORTA = LEDs[2];
+ 6e2:	5b bb       	out	0x1b, r21	; 27
+ 6e4:	80 e1       	ldi	r24, 0x10	; 16
+ 6e6:	97 e2       	ldi	r25, 0x27	; 39
+ 6e8:	e2 2f       	mov	r30, r18
+ 6ea:	f3 2f       	mov	r31, r19
+ 6ec:	31 97       	sbiw	r30, 0x01	; 1
+ 6ee:	f1 f7       	brne	.-4      	; 0x6ec <winGameSequence+0x4e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 6f0:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 6f2:	d1 f7       	brne	.-12     	; 0x6e8 <winGameSequence+0x4a>
+		_delay_ms(1000);
+		PORTA = LEDs[3];
+ 6f4:	4b bb       	out	0x1b, r20	; 27
+ 6f6:	8c e4       	ldi	r24, 0x4C	; 76
+ 6f8:	9d e1       	ldi	r25, 0x1D	; 29
+ 6fa:	e2 2f       	mov	r30, r18
+ 6fc:	f3 2f       	mov	r31, r19
+ 6fe:	31 97       	sbiw	r30, 0x01	; 1
+ 700:	f1 f7       	brne	.-4      	; 0x6fe <winGameSequence+0x60>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 702:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 704:	d1 f7       	brne	.-12     	; 0x6fa <winGameSequence+0x5c>
+}
+
+void winGameSequence()
+{		
+	startISR = 1;			
+	for(ctr = 0; ctr < 57; ctr++)	//Playing End Game Sound	
+ 706:	80 91 6d 00 	lds	r24, 0x006D
+ 70a:	8f 5f       	subi	r24, 0xFF	; 255
+ 70c:	80 93 6d 00 	sts	0x006D, r24
+ 710:	80 91 6d 00 	lds	r24, 0x006D
+ 714:	89 33       	cpi	r24, 0x39	; 57
+ 716:	98 f2       	brcs	.-90     	; 0x6be <winGameSequence+0x20>
+		PORTA = LEDs[2];
+		_delay_ms(1000);
+		PORTA = LEDs[3];
+		_delay_ms(750);;					
+	}
+	startISR = 0;
+ 718:	10 92 6b 00 	sts	0x006B, r1
+
+	startISR = 1;		
+ 71c:	81 e0       	ldi	r24, 0x01	; 1
+ 71e:	80 93 6b 00 	sts	0x006B, r24
+	for(ctr = 0; ctr < 57; ctr++)	//Playing End Game Sound	
+ 722:	10 92 6d 00 	sts	0x006D, r1
+	{		
+			PORTA = 0x9F;
+ 726:	5f e9       	ldi	r21, 0x9F	; 159
+ 728:	29 e0       	ldi	r18, 0x09	; 9
+ 72a:	30 e0       	ldi	r19, 0x00	; 0
+			_delay_ms(1500);
+			PORTA = 0x6F;
+ 72c:	4f e6       	ldi	r20, 0x6F	; 111
+ 72e:	17 c0       	rjmp	.+46     	; 0x75e <winGameSequence+0xc0>
+	startISR = 0;
+
+	startISR = 1;		
+	for(ctr = 0; ctr < 57; ctr++)	//Playing End Game Sound	
+	{		
+			PORTA = 0x9F;
+ 730:	5b bb       	out	0x1b, r21	; 27
+ 732:	88 e9       	ldi	r24, 0x98	; 152
+ 734:	9a e3       	ldi	r25, 0x3A	; 58
+ 736:	e2 2f       	mov	r30, r18
+ 738:	f3 2f       	mov	r31, r19
+ 73a:	31 97       	sbiw	r30, 0x01	; 1
+ 73c:	f1 f7       	brne	.-4      	; 0x73a <winGameSequence+0x9c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 73e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 740:	d1 f7       	brne	.-12     	; 0x736 <winGameSequence+0x98>
+			_delay_ms(1500);
+			PORTA = 0x6F;
+ 742:	4b bb       	out	0x1b, r20	; 27
+ 744:	88 e9       	ldi	r24, 0x98	; 152
+ 746:	9a e3       	ldi	r25, 0x3A	; 58
+ 748:	e2 2f       	mov	r30, r18
+ 74a:	f3 2f       	mov	r31, r19
+ 74c:	31 97       	sbiw	r30, 0x01	; 1
+ 74e:	f1 f7       	brne	.-4      	; 0x74c <winGameSequence+0xae>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 750:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 752:	d1 f7       	brne	.-12     	; 0x748 <winGameSequence+0xaa>
+		_delay_ms(750);;					
+	}
+	startISR = 0;
+
+	startISR = 1;		
+	for(ctr = 0; ctr < 57; ctr++)	//Playing End Game Sound	
+ 754:	80 91 6d 00 	lds	r24, 0x006D
+ 758:	8f 5f       	subi	r24, 0xFF	; 255
+ 75a:	80 93 6d 00 	sts	0x006D, r24
+ 75e:	80 91 6d 00 	lds	r24, 0x006D
+ 762:	89 33       	cpi	r24, 0x39	; 57
+ 764:	28 f3       	brcs	.-54     	; 0x730 <winGameSequence+0x92>
+			PORTA = 0x9F;
+			_delay_ms(1500);
+			PORTA = 0x6F;
+			_delay_ms(1500);
+	}					
+	startISR = 0;
+ 766:	10 92 6b 00 	sts	0x006B, r1
+
+	PORTA = 0x0F;
+ 76a:	8f e0       	ldi	r24, 0x0F	; 15
+ 76c:	8b bb       	out	0x1b, r24	; 27
+}
+ 76e:	08 95       	ret
+
+00000770 <main>:
+void reset();
+
+
+//Main Method Begin
+int main(void)
+{
+ 770:	bf 92       	push	r11
+ 772:	cf 92       	push	r12
+ 774:	df 92       	push	r13
+ 776:	ef 92       	push	r14
+ 778:	ff 92       	push	r15
+ 77a:	0f 93       	push	r16
+ 77c:	1f 93       	push	r17
+ 77e:	cf 93       	push	r28
+ 780:	df 93       	push	r29
+
+
+void initialize()
+{
+	// initialize speaker port
+ 	DDRC = 0xFF;  // set as output
+ 782:	8f ef       	ldi	r24, 0xFF	; 255
+ 784:	84 bb       	out	0x14, r24	; 20
+  	PORTC = ~SPKR;  // turn off speaker
+ 786:	8f ed       	ldi	r24, 0xDF	; 223
+ 788:	85 bb       	out	0x15, r24	; 21
+
+  	// initialize switch/LED port
+  	DDRA = 0xF0;   // set PA0-3 as input
+ 78a:	80 ef       	ldi	r24, 0xF0	; 240
+ 78c:	8a bb       	out	0x1a, r24	; 26
+  	PORTA = 0x0F;  // pull-up switch ports
+ 78e:	8f e0       	ldi	r24, 0x0F	; 15
+ 790:	8b bb       	out	0x1b, r24	; 27
+
+  	// initialize Timer0 interrupts
+  	TCCR0 = 0x04; // prescaler = 256
+ 792:	84 e0       	ldi	r24, 0x04	; 4
+ 794:	83 bf       	out	0x33, r24	; 51
+  	TIMSK = 0x02; // initialize TOV0 interrupt
+ 796:	82 e0       	ldi	r24, 0x02	; 2
+ 798:	89 bf       	out	0x39, r24	; 57
+  	sei();
+ 79a:	78 94       	sei
+
+				break;
+		
+			case 7:							//To restart game
+
+				PORTA = 0x0F;
+ 79c:	1f e0       	ldi	r17, 0x0F	; 15
+					if(PINA == 0x07)
+						state = 0;
+				}
+				else if(PINA != 0x07)
+				{
+					state = 7;
+ 79e:	27 e0       	ldi	r18, 0x07	; 7
+ 7a0:	b2 2e       	mov	r11, r18
+ 7a2:	99 e9       	ldi	r25, 0x99	; 153
+ 7a4:	e9 2e       	mov	r14, r25
+ 7a6:	93 e0       	ldi	r25, 0x03	; 3
+ 7a8:	f9 2e       	mov	r15, r25
+				//Checking to see if correct button(s) are pressed
+				while(1)
+				{
+					if(PINA!=0x0F)
+					{
+						if(PINA == pgm_read_byte(&Answer1[0]))
+ 7aa:	cb ef       	ldi	r28, 0xFB	; 251
+ 7ac:	d3 eb       	ldi	r29, 0xB3	; 179
+ 7ae:	ec ee       	ldi	r30, 0xEC	; 236
+ 7b0:	f0 e0       	ldi	r31, 0x00	; 0
+ 7b2:	c8 95       	lpm
+ 7b4:	00 2d       	mov	r16, r0
+ 7b6:	89 e0       	ldi	r24, 0x09	; 9
+ 7b8:	c8 2e       	mov	r12, r24
+ 7ba:	d1 2c       	mov	r13, r1
+{
+  initialize();
+
+	while(1)
+	{
+		switch(state)
+ 7bc:	80 91 6a 00 	lds	r24, 0x006A
+ 7c0:	e8 2f       	mov	r30, r24
+ 7c2:	f0 e0       	ldi	r31, 0x00	; 0
+ 7c4:	e8 30       	cpi	r30, 0x08	; 8
+ 7c6:	f1 05       	cpc	r31, r1
+ 7c8:	c8 f7       	brcc	.-14     	; 0x7bc <main+0x4c>
+ 7ca:	e3 5f       	subi	r30, 0xF3	; 243
+ 7cc:	ff 4f       	sbci	r31, 0xFF	; 255
+ 7ce:	09 94       	ijmp
+		{
+			case 0:							//Start of Game
+				
+				x = PINA;
+ 7d0:	89 b3       	in	r24, 0x19	; 25
+ 7d2:	80 93 68 00 	sts	0x0068, r24
+				//Checking to see if button is pressed
+				if(x!=0x0F)
+ 7d6:	80 91 68 00 	lds	r24, 0x0068
+ 7da:	8f 30       	cpi	r24, 0x0F	; 15
+ 7dc:	79 f3       	breq	.-34     	; 0x7bc <main+0x4c>
+ 7de:	8e 2d       	mov	r24, r14
+ 7e0:	9f 2d       	mov	r25, r15
+ 7e2:	01 97       	sbiw	r24, 0x01	; 1
+ 7e4:	f1 f7       	brne	.-4      	; 0x7e2 <main+0x72>
+				{
+					_delay_ms(10);
+					
+					if(PINA!=0x0F)
+ 7e6:	89 b3       	in	r24, 0x19	; 25
+ 7e8:	8f 30       	cpi	r24, 0x0F	; 15
+ 7ea:	41 f3       	breq	.-48     	; 0x7bc <main+0x4c>
+					{
+						startISR = 1;
+ 7ec:	81 e0       	ldi	r24, 0x01	; 1
+ 7ee:	80 93 6b 00 	sts	0x006B, r24
+				
+						for(ctr = 0; ctr < 59; ctr++)	//Playing Start Game Sound	
+ 7f2:	10 92 6d 00 	sts	0x006D, r1
+ 7f6:	0d c0       	rjmp	.+26     	; 0x812 <main+0xa2>
+ 7f8:	80 e2       	ldi	r24, 0x20	; 32
+ 7fa:	9e e4       	ldi	r25, 0x4E	; 78
+ 7fc:	ec 2d       	mov	r30, r12
+ 7fe:	fd 2d       	mov	r31, r13
+ 800:	31 97       	sbiw	r30, 0x01	; 1
+ 802:	f1 f7       	brne	.-4      	; 0x800 <main+0x90>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 804:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 806:	d1 f7       	brne	.-12     	; 0x7fc <main+0x8c>
+ 808:	80 91 6d 00 	lds	r24, 0x006D
+ 80c:	8f 5f       	subi	r24, 0xFF	; 255
+ 80e:	80 93 6d 00 	sts	0x006D, r24
+ 812:	80 91 6d 00 	lds	r24, 0x006D
+ 816:	8b 33       	cpi	r24, 0x3B	; 59
+ 818:	78 f3       	brcs	.-34     	; 0x7f8 <main+0x88>
+							_delay_ms(2000);
+						
+						startISR = 0;
+ 81a:	10 92 6b 00 	sts	0x006B, r1
+						state = 1;
+ 81e:	81 e0       	ldi	r24, 0x01	; 1
+ 820:	0c c0       	rjmp	.+24     	; 0x83a <main+0xca>
+
+				break;
+			
+			case 1:
+				
+				playNOTE(0,1);
+ 822:	80 e0       	ldi	r24, 0x00	; 0
+ 824:	61 e0       	ldi	r22, 0x01	; 1
+ 826:	74 de       	rcall	.-792    	; 0x510 <playNOTE>
+				//Checking to see if correct button(s) are pressed
+				while(1)
+				{
+					if(PINA!=0x0F)
+ 828:	89 b3       	in	r24, 0x19	; 25
+ 82a:	8f 30       	cpi	r24, 0x0F	; 15
+ 82c:	e9 f3       	breq	.-6      	; 0x828 <main+0xb8>
+					{
+						if(PINA == pgm_read_byte(&Answer1[0]))
+ 82e:	89 b3       	in	r24, 0x19	; 25
+ 830:	80 17       	cp	r24, r16
+ 832:	31 f4       	brne	.+12     	; 0x840 <main+0xd0>
+						{	
+							winMethod(2);
+ 834:	82 e0       	ldi	r24, 0x02	; 2
+ 836:	cd de       	rcall	.-614    	; 0x5d2 <winMethod>
+							state = 2;
+ 838:	82 e0       	ldi	r24, 0x02	; 2
+ 83a:	80 93 6a 00 	sts	0x006A, r24
+ 83e:	be cf       	rjmp	.-132    	; 0x7bc <main+0x4c>
+							break;
+						}
+						else if(PINA != pgm_read_byte(&Answer1[0]))
+ 840:	89 b3       	in	r24, 0x19	; 25
+ 842:	80 17       	cp	r24, r16
+ 844:	89 f3       	breq	.-30     	; 0x828 <main+0xb8>
+ 846:	55 c0       	rjmp	.+170    	; 0x8f2 <main+0x182>
+
+}
+
+void reset()
+{
+	var1 = 0;
+ 848:	10 92 6c 00 	sts	0x006C, r1
+	var = 0;
+ 84c:	10 92 6e 00 	sts	0x006E, r1
+	x_old = 0x0F;
+ 850:	10 93 69 00 	sts	0x0069, r17
+				break;
+
+			case 2:
+
+				reset();
+				playNOTE(0,1);
+ 854:	80 e0       	ldi	r24, 0x00	; 0
+ 856:	61 e0       	ldi	r22, 0x01	; 1
+ 858:	5b de       	rcall	.-842    	; 0x510 <playNOTE>
+				playNOTE(1,2);
+ 85a:	81 e0       	ldi	r24, 0x01	; 1
+ 85c:	62 e0       	ldi	r22, 0x02	; 2
+ 85e:	58 de       	rcall	.-848    	; 0x510 <playNOTE>
+ 860:	8c 2f       	mov	r24, r28
+ 862:	9d 2f       	mov	r25, r29
+ 864:	01 97       	sbiw	r24, 0x01	; 1
+ 866:	f1 f7       	brne	.-4      	; 0x864 <main+0xf4>
+				_delay_ms(500);
+				
+				//Checking to see if correct button(s) are pressed
+				while(1)
+				{
+					if((PINA != 0x0F) && (PINA != x_old))
+ 868:	89 b3       	in	r24, 0x19	; 25
+ 86a:	8f 30       	cpi	r24, 0x0F	; 15
+ 86c:	e9 f3       	breq	.-6      	; 0x868 <main+0xf8>
+ 86e:	99 b3       	in	r25, 0x19	; 25
+ 870:	80 91 69 00 	lds	r24, 0x0069
+ 874:	98 17       	cp	r25, r24
+ 876:	c1 f3       	breq	.-16     	; 0x868 <main+0xf8>
+					{	
+						if(PINA == pgm_read_byte(&Answer2[var]))
+ 878:	89 b3       	in	r24, 0x19	; 25
+ 87a:	e0 91 6e 00 	lds	r30, 0x006E
+ 87e:	f0 e0       	ldi	r31, 0x00	; 0
+ 880:	e3 51       	subi	r30, 0x13	; 19
+ 882:	ff 4f       	sbci	r31, 0xFF	; 255
+ 884:	c8 95       	lpm
+ 886:	e0 2d       	mov	r30, r0
+ 888:	8e 17       	cp	r24, r30
+ 88a:	f1 f4       	brne	.+60     	; 0x8c8 <main+0x158>
+						{
+							PORTA = pgm_read_byte(&Question2[var]);
+ 88c:	e0 91 6e 00 	lds	r30, 0x006E
+ 890:	f0 e0       	ldi	r31, 0x00	; 0
+ 892:	e4 50       	subi	r30, 0x04	; 4
+ 894:	ff 4f       	sbci	r31, 0xFF	; 255
+ 896:	c8 95       	lpm
+ 898:	e0 2d       	mov	r30, r0
+ 89a:	eb bb       	out	0x1b, r30	; 27
+							var1++;
+ 89c:	80 91 6c 00 	lds	r24, 0x006C
+ 8a0:	8f 5f       	subi	r24, 0xFF	; 255
+ 8a2:	80 93 6c 00 	sts	0x006C, r24
+							if(var1 == 2)
+ 8a6:	80 91 6c 00 	lds	r24, 0x006C
+ 8aa:	82 30       	cpi	r24, 0x02	; 2
+ 8ac:	21 f4       	brne	.+8      	; 0x8b6 <main+0x146>
+							{
+								winMethod(4);
+ 8ae:	84 e0       	ldi	r24, 0x04	; 4
+ 8b0:	90 de       	rcall	.-736    	; 0x5d2 <winMethod>
+								state = 3; 
+ 8b2:	83 e0       	ldi	r24, 0x03	; 3
+ 8b4:	c2 cf       	rjmp	.-124    	; 0x83a <main+0xca>
+								break;
+							}
+							else
+							{
+								x_old = PINA;
+ 8b6:	89 b3       	in	r24, 0x19	; 25
+ 8b8:	80 93 69 00 	sts	0x0069, r24
+								var++;
+ 8bc:	80 91 6e 00 	lds	r24, 0x006E
+ 8c0:	8f 5f       	subi	r24, 0xFF	; 255
+ 8c2:	80 93 6e 00 	sts	0x006E, r24
+ 8c6:	cc cf       	rjmp	.-104    	; 0x860 <main+0xf0>
+								_delay_ms(500);
+							}
+						}
+						else if((PINA != pgm_read_byte(&Answer2[var])) && (PINA != 0x0F) && (PINA != x_old))
+ 8c8:	89 b3       	in	r24, 0x19	; 25
+ 8ca:	e0 91 6e 00 	lds	r30, 0x006E
+ 8ce:	f0 e0       	ldi	r31, 0x00	; 0
+ 8d0:	e3 51       	subi	r30, 0x13	; 19
+ 8d2:	ff 4f       	sbci	r31, 0xFF	; 255
+ 8d4:	c8 95       	lpm
+ 8d6:	e0 2d       	mov	r30, r0
+ 8d8:	8e 17       	cp	r24, r30
+ 8da:	09 f4       	brne	.+2      	; 0x8de <main+0x16e>
+ 8dc:	c5 cf       	rjmp	.-118    	; 0x868 <main+0xf8>
+ 8de:	89 b3       	in	r24, 0x19	; 25
+ 8e0:	8f 30       	cpi	r24, 0x0F	; 15
+ 8e2:	09 f4       	brne	.+2      	; 0x8e6 <main+0x176>
+ 8e4:	c1 cf       	rjmp	.-126    	; 0x868 <main+0xf8>
+ 8e6:	99 b3       	in	r25, 0x19	; 25
+ 8e8:	80 91 69 00 	lds	r24, 0x0069
+ 8ec:	98 17       	cp	r25, r24
+ 8ee:	09 f4       	brne	.+2      	; 0x8f2 <main+0x182>
+ 8f0:	bb cf       	rjmp	.-138    	; 0x868 <main+0xf8>
+						{
+							loseMethod(3);
+ 8f2:	83 e0       	ldi	r24, 0x03	; 3
+ 8f4:	18 c1       	rjmp	.+560    	; 0xb26 <main+0x3b6>
+
+}
+
+void reset()
+{
+	var1 = 0;
+ 8f6:	10 92 6c 00 	sts	0x006C, r1
+	var = 0;
+ 8fa:	10 92 6e 00 	sts	0x006E, r1
+	x_old = 0x0F;
+ 8fe:	10 93 69 00 	sts	0x0069, r17
+				break;
+			
+			case 3:
+				
+				reset();
+				playNOTE(0,1);
+ 902:	80 e0       	ldi	r24, 0x00	; 0
+ 904:	61 e0       	ldi	r22, 0x01	; 1
+ 906:	04 de       	rcall	.-1016   	; 0x510 <playNOTE>
+				playNOTE(2,2);
+ 908:	82 e0       	ldi	r24, 0x02	; 2
+ 90a:	62 e0       	ldi	r22, 0x02	; 2
+ 90c:	01 de       	rcall	.-1022   	; 0x510 <playNOTE>
+				playNOTE(1,3);
+ 90e:	81 e0       	ldi	r24, 0x01	; 1
+ 910:	63 e0       	ldi	r22, 0x03	; 3
+ 912:	fe dd       	rcall	.-1028   	; 0x510 <playNOTE>
+ 914:	8c 2f       	mov	r24, r28
+ 916:	9d 2f       	mov	r25, r29
+ 918:	01 97       	sbiw	r24, 0x01	; 1
+ 91a:	f1 f7       	brne	.-4      	; 0x918 <main+0x1a8>
+				_delay_ms(500);
+				
+				//Checking to see if correct button(s) are pressed
+				while(1)
+				{
+					if((PINA != 0x0F) && (PINA != x_old))
+ 91c:	89 b3       	in	r24, 0x19	; 25
+ 91e:	8f 30       	cpi	r24, 0x0F	; 15
+ 920:	e9 f3       	breq	.-6      	; 0x91c <main+0x1ac>
+ 922:	99 b3       	in	r25, 0x19	; 25
+ 924:	80 91 69 00 	lds	r24, 0x0069
+ 928:	98 17       	cp	r25, r24
+ 92a:	c1 f3       	breq	.-16     	; 0x91c <main+0x1ac>
+ 92c:	8c 2f       	mov	r24, r28
+ 92e:	9d 2f       	mov	r25, r29
+ 930:	01 97       	sbiw	r24, 0x01	; 1
+ 932:	f1 f7       	brne	.-4      	; 0x930 <main+0x1c0>
+					{
+						_delay_ms(500);
+						if(PINA == pgm_read_byte(&Answer3[var]))
+ 934:	89 b3       	in	r24, 0x19	; 25
+ 936:	e0 91 6e 00 	lds	r30, 0x006E
+ 93a:	f0 e0       	ldi	r31, 0x00	; 0
+ 93c:	e1 51       	subi	r30, 0x11	; 17
+ 93e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 940:	c8 95       	lpm
+ 942:	e0 2d       	mov	r30, r0
+ 944:	8e 17       	cp	r24, r30
+ 946:	f1 f4       	brne	.+60     	; 0x984 <main+0x214>
+						{
+							PORTA = pgm_read_byte(&Question3[var]);
+ 948:	e0 91 6e 00 	lds	r30, 0x006E
+ 94c:	f0 e0       	ldi	r31, 0x00	; 0
+ 94e:	e2 50       	subi	r30, 0x02	; 2
+ 950:	ff 4f       	sbci	r31, 0xFF	; 255
+ 952:	c8 95       	lpm
+ 954:	e0 2d       	mov	r30, r0
+ 956:	eb bb       	out	0x1b, r30	; 27
+							var1++;
+ 958:	80 91 6c 00 	lds	r24, 0x006C
+ 95c:	8f 5f       	subi	r24, 0xFF	; 255
+ 95e:	80 93 6c 00 	sts	0x006C, r24
+							if(var1 == 3)
+ 962:	80 91 6c 00 	lds	r24, 0x006C
+ 966:	83 30       	cpi	r24, 0x03	; 3
+ 968:	21 f4       	brne	.+8      	; 0x972 <main+0x202>
+							{
+								winMethod(5);
+ 96a:	85 e0       	ldi	r24, 0x05	; 5
+ 96c:	32 de       	rcall	.-924    	; 0x5d2 <winMethod>
+								state = 4; 
+ 96e:	84 e0       	ldi	r24, 0x04	; 4
+ 970:	64 cf       	rjmp	.-312    	; 0x83a <main+0xca>
+								break;
+							}
+							else
+							{
+								x_old = PINA;
+ 972:	89 b3       	in	r24, 0x19	; 25
+ 974:	80 93 69 00 	sts	0x0069, r24
+								var++;
+ 978:	80 91 6e 00 	lds	r24, 0x006E
+ 97c:	8f 5f       	subi	r24, 0xFF	; 255
+ 97e:	80 93 6e 00 	sts	0x006E, r24
+ 982:	c8 cf       	rjmp	.-112    	; 0x914 <main+0x1a4>
+								_delay_ms(500);
+							}
+							
+						}
+						else if((PINA != pgm_read_byte(&Answer3[var])) && (PINA != 0x0F) && (PINA != x_old))
+ 984:	89 b3       	in	r24, 0x19	; 25
+ 986:	e0 91 6e 00 	lds	r30, 0x006E
+ 98a:	f0 e0       	ldi	r31, 0x00	; 0
+ 98c:	e1 51       	subi	r30, 0x11	; 17
+ 98e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 990:	c8 95       	lpm
+ 992:	e0 2d       	mov	r30, r0
+ 994:	8e 17       	cp	r24, r30
+ 996:	09 f4       	brne	.+2      	; 0x99a <main+0x22a>
+ 998:	c1 cf       	rjmp	.-126    	; 0x91c <main+0x1ac>
+ 99a:	89 b3       	in	r24, 0x19	; 25
+ 99c:	8f 30       	cpi	r24, 0x0F	; 15
+ 99e:	09 f4       	brne	.+2      	; 0x9a2 <main+0x232>
+ 9a0:	bd cf       	rjmp	.-134    	; 0x91c <main+0x1ac>
+ 9a2:	99 b3       	in	r25, 0x19	; 25
+ 9a4:	80 91 69 00 	lds	r24, 0x0069
+ 9a8:	98 17       	cp	r25, r24
+ 9aa:	09 f4       	brne	.+2      	; 0x9ae <main+0x23e>
+ 9ac:	b7 cf       	rjmp	.-146    	; 0x91c <main+0x1ac>
+						{
+							loseMethod(4);
+ 9ae:	84 e0       	ldi	r24, 0x04	; 4
+ 9b0:	ba c0       	rjmp	.+372    	; 0xb26 <main+0x3b6>
+
+}
+
+void reset()
+{
+	var1 = 0;
+ 9b2:	10 92 6c 00 	sts	0x006C, r1
+	var = 0;
+ 9b6:	10 92 6e 00 	sts	0x006E, r1
+	x_old = 0x0F;
+ 9ba:	10 93 69 00 	sts	0x0069, r17
+				break;
+		
+			case 4:
+				
+				reset();
+				playNOTE(1,1);
+ 9be:	81 e0       	ldi	r24, 0x01	; 1
+ 9c0:	61 e0       	ldi	r22, 0x01	; 1
+ 9c2:	a6 dd       	rcall	.-1204   	; 0x510 <playNOTE>
+				playNOTE(3,2);
+ 9c4:	83 e0       	ldi	r24, 0x03	; 3
+ 9c6:	62 e0       	ldi	r22, 0x02	; 2
+ 9c8:	a3 dd       	rcall	.-1210   	; 0x510 <playNOTE>
+				playNOTE(0,3);
+ 9ca:	80 e0       	ldi	r24, 0x00	; 0
+ 9cc:	63 e0       	ldi	r22, 0x03	; 3
+ 9ce:	a0 dd       	rcall	.-1216   	; 0x510 <playNOTE>
+				playNOTE(2,4);
+ 9d0:	82 e0       	ldi	r24, 0x02	; 2
+ 9d2:	64 e0       	ldi	r22, 0x04	; 4
+ 9d4:	9d dd       	rcall	.-1222   	; 0x510 <playNOTE>
+ 9d6:	8c 2f       	mov	r24, r28
+ 9d8:	9d 2f       	mov	r25, r29
+ 9da:	01 97       	sbiw	r24, 0x01	; 1
+ 9dc:	f1 f7       	brne	.-4      	; 0x9da <main+0x26a>
+				_delay_ms(500);
+				
+				//Checking to see if correct button(s) are pressed
+				while(1)
+				{
+					if((PINA != 0x0F) && (PINA != x_old))
+ 9de:	89 b3       	in	r24, 0x19	; 25
+ 9e0:	8f 30       	cpi	r24, 0x0F	; 15
+ 9e2:	e9 f3       	breq	.-6      	; 0x9de <main+0x26e>
+ 9e4:	99 b3       	in	r25, 0x19	; 25
+ 9e6:	80 91 69 00 	lds	r24, 0x0069
+ 9ea:	98 17       	cp	r25, r24
+ 9ec:	c1 f3       	breq	.-16     	; 0x9de <main+0x26e>
+					{
+						if(PINA == pgm_read_byte(&Answer4[var]))
+ 9ee:	89 b3       	in	r24, 0x19	; 25
+ 9f0:	e0 91 6e 00 	lds	r30, 0x006E
+ 9f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 9f6:	ee 50       	subi	r30, 0x0E	; 14
+ 9f8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 9fa:	c8 95       	lpm
+ 9fc:	e0 2d       	mov	r30, r0
+ 9fe:	8e 17       	cp	r24, r30
+ a00:	f1 f4       	brne	.+60     	; 0xa3e <main+0x2ce>
+						{
+							PORTA = pgm_read_byte(&Question4[var]);
+ a02:	e0 91 6e 00 	lds	r30, 0x006E
+ a06:	f0 e0       	ldi	r31, 0x00	; 0
+ a08:	ef 5f       	subi	r30, 0xFF	; 255
+ a0a:	fe 4f       	sbci	r31, 0xFE	; 254
+ a0c:	c8 95       	lpm
+ a0e:	e0 2d       	mov	r30, r0
+ a10:	eb bb       	out	0x1b, r30	; 27
+							var1++;
+ a12:	80 91 6c 00 	lds	r24, 0x006C
+ a16:	8f 5f       	subi	r24, 0xFF	; 255
+ a18:	80 93 6c 00 	sts	0x006C, r24
+							if(var1 == 4)
+ a1c:	80 91 6c 00 	lds	r24, 0x006C
+ a20:	84 30       	cpi	r24, 0x04	; 4
+ a22:	21 f4       	brne	.+8      	; 0xa2c <main+0x2bc>
+							{
+								winMethod(6);
+ a24:	86 e0       	ldi	r24, 0x06	; 6
+ a26:	d5 dd       	rcall	.-1110   	; 0x5d2 <winMethod>
+								state = 5; 
+ a28:	85 e0       	ldi	r24, 0x05	; 5
+ a2a:	07 cf       	rjmp	.-498    	; 0x83a <main+0xca>
+								break;
+							}
+							else
+							{
+								x_old = PINA;
+ a2c:	89 b3       	in	r24, 0x19	; 25
+ a2e:	80 93 69 00 	sts	0x0069, r24
+								var++;
+ a32:	80 91 6e 00 	lds	r24, 0x006E
+ a36:	8f 5f       	subi	r24, 0xFF	; 255
+ a38:	80 93 6e 00 	sts	0x006E, r24
+ a3c:	cc cf       	rjmp	.-104    	; 0x9d6 <main+0x266>
+								_delay_ms(500);
+							}
+							
+						}
+						else if((PINA != pgm_read_byte(&Answer3[var])) && (PINA != 0x0F) && (PINA != x_old))
+ a3e:	89 b3       	in	r24, 0x19	; 25
+ a40:	e0 91 6e 00 	lds	r30, 0x006E
+ a44:	f0 e0       	ldi	r31, 0x00	; 0
+ a46:	e1 51       	subi	r30, 0x11	; 17
+ a48:	ff 4f       	sbci	r31, 0xFF	; 255
+ a4a:	c8 95       	lpm
+ a4c:	e0 2d       	mov	r30, r0
+ a4e:	8e 17       	cp	r24, r30
+ a50:	09 f4       	brne	.+2      	; 0xa54 <main+0x2e4>
+ a52:	c5 cf       	rjmp	.-118    	; 0x9de <main+0x26e>
+ a54:	89 b3       	in	r24, 0x19	; 25
+ a56:	8f 30       	cpi	r24, 0x0F	; 15
+ a58:	09 f4       	brne	.+2      	; 0xa5c <main+0x2ec>
+ a5a:	c1 cf       	rjmp	.-126    	; 0x9de <main+0x26e>
+ a5c:	99 b3       	in	r25, 0x19	; 25
+ a5e:	80 91 69 00 	lds	r24, 0x0069
+ a62:	98 17       	cp	r25, r24
+ a64:	09 f4       	brne	.+2      	; 0xa68 <main+0x2f8>
+ a66:	bb cf       	rjmp	.-138    	; 0x9de <main+0x26e>
+						{
+							loseMethod(5);
+ a68:	85 e0       	ldi	r24, 0x05	; 5
+ a6a:	5d c0       	rjmp	.+186    	; 0xb26 <main+0x3b6>
+
+}
+
+void reset()
+{
+	var1 = 0;
+ a6c:	10 92 6c 00 	sts	0x006C, r1
+	var = 0;
+ a70:	10 92 6e 00 	sts	0x006E, r1
+	x_old = 0x0F;
+ a74:	10 93 69 00 	sts	0x0069, r17
+				break;
+		
+			case 5:
+				
+				reset();
+				playNOTE(0,1);
+ a78:	80 e0       	ldi	r24, 0x00	; 0
+ a7a:	61 e0       	ldi	r22, 0x01	; 1
+ a7c:	49 dd       	rcall	.-1390   	; 0x510 <playNOTE>
+				playNOTE(3,2);
+ a7e:	83 e0       	ldi	r24, 0x03	; 3
+ a80:	62 e0       	ldi	r22, 0x02	; 2
+ a82:	46 dd       	rcall	.-1396   	; 0x510 <playNOTE>
+				playNOTE(1,3);
+ a84:	81 e0       	ldi	r24, 0x01	; 1
+ a86:	63 e0       	ldi	r22, 0x03	; 3
+ a88:	43 dd       	rcall	.-1402   	; 0x510 <playNOTE>
+				playNOTE(2,4);
+ a8a:	82 e0       	ldi	r24, 0x02	; 2
+ a8c:	64 e0       	ldi	r22, 0x04	; 4
+ a8e:	40 dd       	rcall	.-1408   	; 0x510 <playNOTE>
+				playNOTE(0,5);	
+ a90:	80 e0       	ldi	r24, 0x00	; 0
+ a92:	65 e0       	ldi	r22, 0x05	; 5
+ a94:	3d dd       	rcall	.-1414   	; 0x510 <playNOTE>
+ a96:	8c 2f       	mov	r24, r28
+ a98:	9d 2f       	mov	r25, r29
+ a9a:	01 97       	sbiw	r24, 0x01	; 1
+ a9c:	f1 f7       	brne	.-4      	; 0xa9a <main+0x32a>
+				
+				_delay_ms(500);			
+				
+				while(1)
+				{
+					if((PINA != 0x0F) && (PINA != x_old))
+ a9e:	89 b3       	in	r24, 0x19	; 25
+ aa0:	8f 30       	cpi	r24, 0x0F	; 15
+ aa2:	e9 f3       	breq	.-6      	; 0xa9e <main+0x32e>
+ aa4:	99 b3       	in	r25, 0x19	; 25
+ aa6:	80 91 69 00 	lds	r24, 0x0069
+ aaa:	98 17       	cp	r25, r24
+ aac:	c1 f3       	breq	.-16     	; 0xa9e <main+0x32e>
+					{
+						if(PINA == pgm_read_byte(&Answer5[var]))
+ aae:	89 b3       	in	r24, 0x19	; 25
+ ab0:	e0 91 6e 00 	lds	r30, 0x006E
+ ab4:	f0 e0       	ldi	r31, 0x00	; 0
+ ab6:	ea 50       	subi	r30, 0x0A	; 10
+ ab8:	ff 4f       	sbci	r31, 0xFF	; 255
+ aba:	c8 95       	lpm
+ abc:	e0 2d       	mov	r30, r0
+ abe:	8e 17       	cp	r24, r30
+ ac0:	e1 f4       	brne	.+56     	; 0xafa <main+0x38a>
+						{
+							PORTA = pgm_read_byte(&Question5[var]);
+ ac2:	e0 91 6e 00 	lds	r30, 0x006E
+ ac6:	f0 e0       	ldi	r31, 0x00	; 0
+ ac8:	eb 5f       	subi	r30, 0xFB	; 251
+ aca:	fe 4f       	sbci	r31, 0xFE	; 254
+ acc:	c8 95       	lpm
+ ace:	e0 2d       	mov	r30, r0
+ ad0:	eb bb       	out	0x1b, r30	; 27
+							var1++;
+ ad2:	80 91 6c 00 	lds	r24, 0x006C
+ ad6:	8f 5f       	subi	r24, 0xFF	; 255
+ ad8:	80 93 6c 00 	sts	0x006C, r24
+							if(var1 == 5)
+ adc:	80 91 6c 00 	lds	r24, 0x006C
+ ae0:	85 30       	cpi	r24, 0x05	; 5
+ ae2:	11 f4       	brne	.+4      	; 0xae8 <main+0x378>
+							{
+								state = 6; 
+ ae4:	86 e0       	ldi	r24, 0x06	; 6
+ ae6:	a9 ce       	rjmp	.-686    	; 0x83a <main+0xca>
+								break;
+							}
+							else
+							{
+								x_old = PINA;
+ ae8:	89 b3       	in	r24, 0x19	; 25
+ aea:	80 93 69 00 	sts	0x0069, r24
+								var++;
+ aee:	80 91 6e 00 	lds	r24, 0x006E
+ af2:	8f 5f       	subi	r24, 0xFF	; 255
+ af4:	80 93 6e 00 	sts	0x006E, r24
+ af8:	ce cf       	rjmp	.-100    	; 0xa96 <main+0x326>
+								_delay_ms(500);
+							}
+							
+						}
+						else if((PINA != pgm_read_byte(&Answer3[var])) && (PINA != 0x0F) && (PINA != x_old))
+ afa:	89 b3       	in	r24, 0x19	; 25
+ afc:	e0 91 6e 00 	lds	r30, 0x006E
+ b00:	f0 e0       	ldi	r31, 0x00	; 0
+ b02:	e1 51       	subi	r30, 0x11	; 17
+ b04:	ff 4f       	sbci	r31, 0xFF	; 255
+ b06:	c8 95       	lpm
+ b08:	e0 2d       	mov	r30, r0
+ b0a:	8e 17       	cp	r24, r30
+ b0c:	09 f4       	brne	.+2      	; 0xb10 <main+0x3a0>
+ b0e:	c7 cf       	rjmp	.-114    	; 0xa9e <main+0x32e>
+ b10:	89 b3       	in	r24, 0x19	; 25
+ b12:	8f 30       	cpi	r24, 0x0F	; 15
+ b14:	09 f4       	brne	.+2      	; 0xb18 <main+0x3a8>
+ b16:	c3 cf       	rjmp	.-122    	; 0xa9e <main+0x32e>
+ b18:	99 b3       	in	r25, 0x19	; 25
+ b1a:	80 91 69 00 	lds	r24, 0x0069
+ b1e:	98 17       	cp	r25, r24
+ b20:	09 f4       	brne	.+2      	; 0xb24 <main+0x3b4>
+ b22:	bd cf       	rjmp	.-134    	; 0xa9e <main+0x32e>
+						{
+							loseMethod(6);
+ b24:	86 e0       	ldi	r24, 0x06	; 6
+ b26:	90 dd       	rcall	.-1248   	; 0x648 <loseMethod>
+ b28:	49 ce       	rjmp	.-878    	; 0x7bc <main+0x4c>
+				}
+				break;
+		
+			case 6:							//End of Game
+						
+				winGameSequence();
+ b2a:	b9 dd       	rcall	.-1166   	; 0x69e <winGameSequence>
+ b2c:	13 c0       	rjmp	.+38     	; 0xb54 <main+0x3e4>
+
+				break;
+		
+			case 7:							//To restart game
+
+				PORTA = 0x0F;
+ b2e:	1b bb       	out	0x1b, r17	; 27
+				if(PINA == 0x07)
+ b30:	89 b3       	in	r24, 0x19	; 25
+ b32:	87 30       	cpi	r24, 0x07	; 7
+ b34:	59 f4       	brne	.+22     	; 0xb4c <main+0x3dc>
+ b36:	8e 2d       	mov	r24, r14
+ b38:	9f 2d       	mov	r25, r15
+ b3a:	01 97       	sbiw	r24, 0x01	; 1
+ b3c:	f1 f7       	brne	.-4      	; 0xb3a <main+0x3ca>
+				{
+					_delay_ms(10);
+					if(PINA == 0x07)
+ b3e:	89 b3       	in	r24, 0x19	; 25
+ b40:	87 30       	cpi	r24, 0x07	; 7
+ b42:	09 f0       	breq	.+2      	; 0xb46 <main+0x3d6>
+ b44:	3b ce       	rjmp	.-906    	; 0x7bc <main+0x4c>
+						state = 0;
+ b46:	10 92 6a 00 	sts	0x006A, r1
+ b4a:	38 ce       	rjmp	.-912    	; 0x7bc <main+0x4c>
+				}
+				else if(PINA != 0x07)
+ b4c:	89 b3       	in	r24, 0x19	; 25
+ b4e:	87 30       	cpi	r24, 0x07	; 7
+ b50:	09 f4       	brne	.+2      	; 0xb54 <main+0x3e4>
+ b52:	34 ce       	rjmp	.-920    	; 0x7bc <main+0x4c>
+				{
+					state = 7;
+ b54:	b0 92 6a 00 	sts	0x006A, r11
+ b58:	31 ce       	rjmp	.-926    	; 0x7bc <main+0x4c>
+
+00000b5a <_exit>:
+ b5a:	f8 94       	cli
+
+00000b5c <__stop_program>:
+ b5c:	ff cf       	rjmp	.-2      	; 0xb5c <__stop_program>
