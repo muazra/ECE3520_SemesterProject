@@ -1,9 +1,7 @@
-ECE3520_SemesterProject
+Simon-AVR
 =======================
 
-Famous Simon LED Game built on a custom-made PCB board. 
-Implements the AT90S4414 uC chip.
-
+Famous Simon LED Game built on a custom PCB board (AT90S4414 uC).
 Written using AVR C - via AVR Studios.
 
 Microprocessors Software and Hardware Design (ECE 3520) Final Project.
